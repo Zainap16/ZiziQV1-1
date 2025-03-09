@@ -1,0 +1,31 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "port",
+&"description": "",
+&"display_name": "npc",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"port": {
+"export_overrides": {
+"image": "\"res://icon.svg\""
+},
+"mirror": false,
+"offset": Vector2(0, -130),
+"scale": 0.2,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

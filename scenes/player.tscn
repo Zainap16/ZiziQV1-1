@@ -1,10 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq0tt8w7jt80f"]
+[gd_scene load_steps=7 format=3 uid="uid://dq0tt8w7jt80f"]
 
-[ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://character_body_3d.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://player.gd" id="1_4flbx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+
+[sub_resource type="Animation" id="Animation_g2els"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1457, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3vyb7"]
 resource_name = "headbob_walk"
@@ -22,32 +37,16 @@ tracks/0/keys = {
 "values": [Vector3(0, 0.146, 0), Vector3(0.05, 0.15, 0), Vector3(0.05, 0.2, 0), Vector3(-0.05, 0.146, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_g2els"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.1457, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
 _data = {
 &"RESET": SubResource("Animation_g2els"),
 &"headbob_walk": SubResource("Animation_3vyb7")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
-
 [node name="Player" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+visible = false
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
@@ -67,8 +66,3 @@ root_node = NodePath("../Camera3D")
 libraries = {
 &"": SubResource("AnimationLibrary_qhqgy")
 }
-
-[node name="detectable" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="detectable"]
-shape = SubResource("CapsuleShape3D_3vyb7")

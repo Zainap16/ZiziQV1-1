@@ -1,19 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd7q211fc3otd"]
+[gd_scene load_steps=6 format=3 uid="uid://cd7q211fc3otd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vusl6"]
-albedo_color = Color(0.87443, 6.40139e-05, 0.671354, 1)
+[ext_resource type="Script" uid="uid://bn4q3st4p2j5r" path="res://NPCs/npc_1.gd" id="1_t44hj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t44hj"]
+albedo_color = Color(0.75895, 0.00367796, 0.605678, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vusl6"]
+material = SubResource("StandardMaterial3D_t44hj")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t44hj"]
 
-[node name="npc1" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nkmus"]
+radius = 2.00753
+height = 4.01506
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Chuck" type="CharacterBody3D"]
+script = ExtResource("1_t44hj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-material_override = SubResource("StandardMaterial3D_vusl6")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_vusl6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t44hj")
+
+[node name="chatDetection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chatDetection"]
+shape = SubResource("CapsuleShape3D_nkmus")
+
+[connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="chatDetection" to="." method="_on_chat_detection_body_exited"]
