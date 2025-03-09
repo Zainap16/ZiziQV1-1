@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SENSITIVEITY = 0.003
-const SPEED = 10
+const SPEED = 8
 const JUMP_VELOCITY = 6
 
 #bob varibales
@@ -9,9 +9,10 @@ const BOB_FREQ = 2.4 # how often our footsteps happen
 const BOB_AMP = 0.08 #how far up and down our cam goes
 var t_bob = 0.0 #sine wave how far?
 var initial_camera_pos: Vector3
-
+#if there is spring make headbob speed_scale = 1.5
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var headbob = $Head/headbob
 
 func  _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -40,16 +41,9 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED	
+		headbob.play("headbob_walk")
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
-		# head bob
-		t_bob += delta * velocity.length() * float(is_on_floor())
-		camera.transform.origin = _headbob(t_bob)
-
+		headbob.pause()
 	move_and_slide()
-	
-func _headbob(time:float) -> Vector3:
-	var pos = initial_camera_pos
-	pos.y += sin(time * BOB_FREQ) * BOB_AMP
-	return pos
