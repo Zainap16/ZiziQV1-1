@@ -22,13 +22,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://character.dch",
+"character": "res://Timelines/characters/character.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"npc-1": "res://npc-1.dtl"
+"npc-1": "res://Timelines/npc-1.dtl"
 }
 glossary/default_case_sensitive=true
+layout/style_list=[""]
+layout/default_style=""
 
 [editor_plugins]
 

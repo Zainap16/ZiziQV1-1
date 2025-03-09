@@ -13,13 +13,16 @@ var initial_camera_pos: Vector3
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var headbob = $Head/headbob
+@onready var player = $"."
 
+var player_in_range = false
 
 var npc1 =  false
 
 func  _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	initial_camera_pos = camera.transform.origin
+	Dialogic.signal_event.connect(DialogicSignal)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -51,3 +54,34 @@ func _physics_process(delta):
 		velocity.z = 0.0
 		headbob.pause()
 	move_and_slide()
+	if player_in_range:
+		if Input.is_action_just_pressed("dialogue"):
+			run_dialogue("npc-1")
+
+func run_dialogue(dialogue_string):
+	Dialogic.start(dialogue_string)
+
+func _on_area_3d_body_entered(body):
+	print("body entered")
+	if body.has_method("player_f"):
+		player_in_range = true
+		print("eneter")
+
+
+func _on_area_3d_body_exited(body):
+	print("body exited")
+	if body.has_method("player_f"):
+		player_in_range = true
+		print("WIN")
+
+func DialogicSignal(body):
+	if body.name == "player":  # Change this to match your player node's name
+		print("SCORE")
+		stop_dialogue()
+
+func stop_dialogue():
+	if Dialogic:  
+		Dialogic.stop()  # ✅ Stops the dialogue safely
+		
+func player_f():
+	pass

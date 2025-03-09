@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd7q211fc3otd"]
+[gd_scene load_steps=5 format=3 uid="uid://cd7q211fc3otd"]
 
 [ext_resource type="Script" uid="uid://bn4q3st4p2j5r" path="res://NPCs/npc_1.gd" id="1_t44hj"]
 
@@ -10,10 +10,6 @@ material = SubResource("StandardMaterial3D_t44hj")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t44hj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nkmus"]
-radius = 2.00753
-height = 4.01506
-
 [node name="Chuck" type="CharacterBody3D"]
 script = ExtResource("1_t44hj")
 
@@ -22,11 +18,3 @@ mesh = SubResource("CapsuleMesh_vusl6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t44hj")
-
-[node name="chatDetection" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="chatDetection"]
-shape = SubResource("CapsuleShape3D_nkmus")
-
-[connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
-[connection signal="body_exited" from="chatDetection" to="." method="_on_chat_detection_body_exited"]

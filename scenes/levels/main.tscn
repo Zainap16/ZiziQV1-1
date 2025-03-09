@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwhwahxmjgpy3"]
+[gd_scene load_steps=14 format=3 uid="uid://dwhwahxmjgpy3"]
 
-[ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://player.gd" id="1_2vj2h"]
+[ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://scenes/scripts/player.gd" id="1_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://cd7q211fc3otd" path="res://NPCs/npc_1.tscn" id="2_2vj2h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
@@ -62,6 +62,9 @@ tonemap_mode = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ix8"]
 albedo_color = Color(0.836381, 0.469011, 0.182865, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2vj2h"]
+size = Vector3(2.04321, 2.0043, 2.03418)
+
 [node name="Main" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -112,4 +115,13 @@ size = Vector3(3, 2.41446, 2.75562)
 [node name="Chuck" parent="." instance=ExtResource("2_2vj2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40257, -4.01519)
 
+[node name="Area3D" type="Area3D" parent="Chuck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39534, -0.108719)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chuck/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327454, 0.410751, 0.175835)
+shape = SubResource("BoxShape3D_2vj2h")
+
 [connection signal="child_entered_tree" from="Player/player" to="Player/player" method="_on_child_entered_tree"]
+[connection signal="body_entered" from="Chuck/Area3D" to="Player/player" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Chuck/Area3D" to="Player/player" method="_on_area_3d_body_exited"]
