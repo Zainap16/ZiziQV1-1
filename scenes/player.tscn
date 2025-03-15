@@ -46,7 +46,6 @@ _data = {
 [node name="Player" type="Node3D"]
 
 [node name="player" type="CharacterBody3D" parent="."]
-visible = false
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
@@ -58,11 +57,11 @@ mesh = SubResource("CapsuleMesh_sh265")
 [node name="Head" type="Node3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627775, 0.133912)
 
-[node name="Camera3D" type="Camera3D" parent="player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1457, 0)
-
 [node name="headbob" type="AnimationPlayer" parent="player/Head"]
-root_node = NodePath("../Camera3D")
+root_node = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_qhqgy")
 }
+
+[node name="Camera3D" type="Camera3D" parent="player/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208387, -0.321249)
