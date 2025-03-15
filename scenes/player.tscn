@@ -50,6 +50,7 @@ script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("CapsuleShape3D_sh265")
+debug_color = Color(0.688444, 0.00101385, 0.214577, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
 mesh = SubResource("CapsuleMesh_sh265")
@@ -64,4 +65,4 @@ libraries = {
 }
 
 [node name="Camera3D" type="Camera3D" parent="player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208387, -0.321249)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298473, -0.365302)
