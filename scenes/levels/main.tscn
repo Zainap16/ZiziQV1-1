@@ -99,7 +99,7 @@ navigation_mesh = SubResource("NavigationMesh_j4d2a")
 [node name="zombie_actions" parent="NavigationRegion3D" instance=ExtResource("3_y0acb")]
 transform = Transform3D(-0.970435, 0, 0.241363, 0, 1, 0, -0.241363, 0, -0.970435, 3.00072, 0.34985, 10.2735)
 script = ExtResource("4_j4d2a")
-player_path = NodePath("../Player")
+player_path = NodePath("../Player/player")
 
 [node name="floor" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925781, 0.109375, -0.110803)
