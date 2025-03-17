@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://y2we6i5o660o"
-path="res://.godot/imported/character-skeleton.glb-b9a11f1ce3b67e7f845e2f1ae6e6efa9.scn"
+uid="uid://cr2uamdmi8sds"
+path="res://.godot/imported/Ndebele_Hut7[1].glb-5a0abfaf7e2d8848670b8ce2f2319ef4.scn"
 
 [deps]
 
-source_file="res://models/Crpyt/character-skeleton.glb"
-dest_files=["res://.godot/imported/character-skeleton.glb-b9a11f1ce3b67e7f845e2f1ae6e6efa9.scn"]
+source_file="res://Ndebele_Hut7[1].glb"
+dest_files=["res://.godot/imported/Ndebele_Hut7[1].glb-5a0abfaf7e2d8848670b8ce2f2319ef4.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

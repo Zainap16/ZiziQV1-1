@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvmuokcs8uglv"]
+
+[ext_resource type="PackedScene" uid="uid://dde8lh411go0" path="res://models/Crpyt/road.glb" id="1_1ln8j"]
+
+[node name="road2" instance=ExtResource("1_1ln8j")]

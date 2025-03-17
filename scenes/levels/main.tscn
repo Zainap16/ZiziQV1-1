@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dwhwahxmjgpy3"]
+[gd_scene load_steps=21 format=3 uid="uid://dwhwahxmjgpy3"]
 
 [ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://scenes/scripts/player.gd" id="1_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://cd7q211fc3otd" path="res://NPCs/npc_1.tscn" id="2_2vj2h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cefet3wmmqlyf" path="res://scenes/scripts/zombie_actions.gd" id="4_j4d2a"]
 [ext_resource type="Texture2D" uid="uid://ca3vntmsp1pc3" path="res://earth-texture.jpg" id="4_u81e1"]
 [ext_resource type="PackedScene" uid="uid://bsyj1v64ggimj" path="res://scenes/crypt_2.tscn" id="6_b6bv0"]
+[ext_resource type="PackedScene" uid="uid://eyq25glkr5t6" path="res://scenes/ndebele_hut_7.tscn" id="7_ubwgw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6bv0"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,10 +29,10 @@ volumetric_fog_length = 100.0
 volumetric_fog_detail_spread = 1.31951
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lrji"]
-albedo_color = Color(0.684599, 0.106335, 9.62615e-08, 1)
+albedo_color = Color(0.999999, 0.200892, 0.0542915, 1)
 emission_enabled = true
-emission = Color(0.468124, 0.103568, 0.00589135, 1)
-emission_energy_multiplier = 3.0
+emission = Color(0.995755, 0.42716, 0.291946, 1)
+emission_energy_multiplier = 2.38
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2vj2h"]
 size = Vector3(2.04321, 2.0043, 2.03418)
@@ -165,3 +166,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298473, -0.365302)
 
 [node name="crypt2" parent="NavigationRegion3D" instance=ExtResource("6_b6bv0")]
 transform = Transform3D(-0.9966, 0, 0.0823907, 0, 1, 0, -0.0823907, 0, -0.9966, -0.475525, 0.382934, 10.3285)
+
+[node name="Ndebele_Hut7[1]" parent="." instance=ExtResource("7_ubwgw")]
+transform = Transform3D(0.414157, 0, 0.280132, 0, 0.5, 0, -0.280132, 0, 0.414157, 9.22864, -0.195065, 12.0015)

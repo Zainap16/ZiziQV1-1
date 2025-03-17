@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://xrmtsjfwud7c"]
+
+[ext_resource type="PackedScene" uid="uid://c0duyjljy83se" path="res://models/Crpyt/brick-wall-end.glb" id="1_a0i15"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a0i15"]
+points = PackedVector3Array(-0.30002, 0.8239, -0.31002, 0.5, 0.0899225, -0.320004, 0.30325, 0.537196, -0.327013, 0.5, 0.70188, -0.342929, -0.30002, 0.8239, -0.51, -0.5, 0.8239, -0.31002, -0.30002, -4.74538e-19, -0.31002, 0.5, -4.74538e-19, -0.320004, 0.5, 0.70188, -0.477091, 0.5, 0.0899225, -0.500016, -0.30002, -4.74538e-19, -0.51, -0.5, 0.8239, -0.51, -0.5, -4.74538e-19, -0.31002, 0.5, -4.74538e-19, -0.500016, -0.5, -4.74538e-19, -0.51)
+
+[node name="brick-wall-end2" instance=ExtResource("1_a0i15")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_a0i15")

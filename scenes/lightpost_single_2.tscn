@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b72kcxcqexlnv"]
+
+[ext_resource type="PackedScene" uid="uid://dxr2a2mf6q4t8" path="res://models/Crpyt/lightpost-single.glb" id="1_4xyi1"]
+
+[node name="lightpost-single2" instance=ExtResource("1_4xyi1")]
