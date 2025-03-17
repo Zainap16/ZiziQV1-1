@@ -94,9 +94,9 @@ albedo_color = Color(0.45008, 0.465522, 0.429565, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_re22a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0s8p8"]
-albedo_color = Color(0.247017, 0.428834, 0, 1)
+albedo_color = Color(0.458824, 0.764706, 0, 0.835294)
 emission_enabled = true
-emission = Color(0.602154, 0.744518, 0.409838, 1)
+emission = Color(0.656653, 1, 0.572183, 1)
 emission_energy_multiplier = 0.3
 
 [sub_resource type="Animation" id="Animation_e0543"]
