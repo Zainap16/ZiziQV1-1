@@ -1,32 +1,49 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwhwahxmjgpy3"]
+[gd_scene load_steps=20 format=3 uid="uid://dwhwahxmjgpy3"]
 
 [ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://scenes/scripts/player.gd" id="1_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://cd7q211fc3otd" path="res://NPCs/npc_1.tscn" id="2_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://cc6ilxfgv12cr" path="res://NPCs/zombie_actions.tscn" id="3_y0acb"]
 [ext_resource type="Script" uid="uid://cefet3wmmqlyf" path="res://scenes/scripts/zombie_actions.gd" id="4_j4d2a"]
+[ext_resource type="Texture2D" uid="uid://ca3vntmsp1pc3" path="res://earth-texture.jpg" id="4_u81e1"]
+[ext_resource type="PackedScene" uid="uid://bsyj1v64ggimj" path="res://scenes/crypt_2.tscn" id="6_b6bv0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6bv0"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_0xm2m"]
-sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+[sub_resource type="Sky" id="Sky_ubwgw"]
+sky_material = SubResource("ProceduralSkyMaterial_b6bv0")
 
-[sub_resource type="Environment" id="Environment_h2yge"]
+[sub_resource type="Environment" id="Environment_vkq25"]
 background_mode = 2
-sky = SubResource("Sky_0xm2m")
+sky = SubResource("Sky_ubwgw")
 tonemap_mode = 2
+glow_bloom = 0.06
+fog_light_color = Color(0.517109, 0.227709, 0.198188, 1)
+fog_light_energy = 2.5
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.657582, 0.318996, 0.296177, 1)
+volumetric_fog_emission = Color(0.56744, 0.413317, 0.360829, 1)
+volumetric_fog_length = 100.0
+volumetric_fog_detail_spread = 1.31951
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lrji"]
+albedo_color = Color(0.684599, 0.106335, 9.62615e-08, 1)
+emission_enabled = true
+emission = Color(0.468124, 0.103568, 0.00589135, 1)
+emission_energy_multiplier = 3.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2vj2h"]
 size = Vector3(2.04321, 2.0043, 2.03418)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_j4d2a"]
-vertices = PackedVector3Array(-23.5742, 0.8, -0.110804, -1.07422, 0.8, -0.110804, -1.07422, 0.8, -0.860804, -0.0742188, 0.8, -1.1108, -0.0742188, 0.8, -24.6108, -23.5742, 0.8, -24.6108, 0.675781, 0.8, -1.1108, 1.17578, 0.8, -0.110804, 25.4258, 0.8, -0.110804, 25.4258, 0.8, -24.6108, -1.82422, 0.8, 7.3892, 0.175781, 0.8, 7.3892, 0.175781, 0.8, 1.1392, -1.07422, 0.8, 0.639196, -23.5742, 0.8, 9.3892, -2.07422, 0.8, 9.3892, 1.67578, 0.8, 7.3892, 1.17578, 0.8, 0.639196, 25.4258, 0.8, 7.1392, 2.17578, 0.8, 11.1392, 0.175781, 0.8, 11.3892, 0.175781, 0.8, 24.3892, 2.17578, 0.8, 7.6392, 25.4258, 0.8, 24.3892, -1.07422, 2.55, 8.3892, -1.07422, 2.55, 10.3892, 1.17578, 2.55, 10.3892, 1.17578, 2.55, 8.3892, -1.82422, 0.8, 11.3892, -23.5742, 0.8, 24.3892)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(6, 3, 4), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 8), PackedInt32Array(8, 4, 9), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 10), PackedInt32Array(13, 10, 1), PackedInt32Array(1, 10, 15), PackedInt32Array(1, 15, 14), PackedInt32Array(1, 14, 0), PackedInt32Array(11, 12, 16), PackedInt32Array(16, 12, 17), PackedInt32Array(17, 7, 16), PackedInt32Array(16, 7, 18), PackedInt32Array(18, 7, 8), PackedInt32Array(21, 20, 19), PackedInt32Array(22, 16, 18), PackedInt32Array(19, 22, 18), PackedInt32Array(21, 19, 23), PackedInt32Array(23, 19, 18), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(28, 20, 21), PackedInt32Array(14, 15, 28), PackedInt32Array(14, 28, 29), PackedInt32Array(29, 28, 21)]
+vertices = PackedVector3Array(-48.5742, 0.8, -0.610802, -1.07422, 0.8, -0.610802, -0.824219, 0.8, -1.1108, -0.0742188, 0.8, -49.6108, -48.5742, 0.8, -49.6108, -0.0742188, 0.8, -1.1108, 0.675781, 0.8, -1.1108, 1.17578, 0.8, -0.110802, 50.4258, 0.8, -0.110802, 50.4258, 0.8, -49.6108, -2.57422, 0.8, 6.1392, -0.324219, 0.8, 6.3892, -0.0742188, 0.8, 1.1392, -1.07422, 0.8, 0.639198, -48.5742, 0.8, 8.6392, -3.32422, 0.8, 8.8892, -3.07422, 0.8, 6.6392, 2.42578, 0.8, 6.6392, 2.42578, 0.8, 9.8892, 3.42578, 0.8, 9.6392, 0.675781, 0.8, 1.1392, 3.67578, 0.8, 10.3892, 50.4258, 0.8, 10.3892, 1.17578, 3.3, 8.3892, 0.675781, 3.55, 7.8892, -1.57422, 3.55, 7.8892, -2.07422, 3.3, 12.1392, -2.07422, 3.3, 12.6392, 0.675781, 3.3, 12.8892, -0.449219, 4.05, 7.8892, -0.699219, 4.05, 12.7642, -3.57422, 0.8, 13.3892, -48.5742, 0.8, 13.3892, 3.42578, 0.8, 10.8892, 2.42578, 0.8, 10.6392, 2.17578, 0.8, 14.1392, -0.0742188, 0.8, 49.3892, 50.4258, 0.8, 49.3892, 0.175781, 0.8, 14.3892, -1.32422, 0.8, 11.3892, -1.32422, 0.8, 12.1392, -0.0742188, 0.8, 12.1392, 0.175781, 0.8, 11.6392, -3.07422, 0.8, 14.1392, -48.5742, 0.8, 49.3892)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(6, 5, 3), PackedInt32Array(6, 3, 7), PackedInt32Array(7, 3, 8), PackedInt32Array(8, 3, 9), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 10), PackedInt32Array(16, 15, 14), PackedInt32Array(10, 16, 13), PackedInt32Array(13, 16, 1), PackedInt32Array(1, 16, 0), PackedInt32Array(0, 16, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(12, 20, 11), PackedInt32Array(11, 20, 17), PackedInt32Array(19, 7, 21), PackedInt32Array(21, 7, 22), PackedInt32Array(22, 7, 8), PackedInt32Array(20, 7, 17), PackedInt32Array(17, 7, 19), PackedInt32Array(27, 26, 30), PackedInt32Array(30, 26, 28), PackedInt32Array(28, 26, 23), PackedInt32Array(23, 26, 24), PackedInt32Array(24, 26, 29), PackedInt32Array(29, 26, 25), PackedInt32Array(31, 32, 15), PackedInt32Array(15, 32, 14), PackedInt32Array(35, 34, 33), PackedInt32Array(33, 21, 35), PackedInt32Array(35, 21, 36), PackedInt32Array(36, 21, 22), PackedInt32Array(36, 22, 37), PackedInt32Array(36, 38, 35), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 39), PackedInt32Array(43, 38, 36), PackedInt32Array(43, 36, 31), PackedInt32Array(31, 36, 32), PackedInt32Array(32, 36, 44)]
 agent_height = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
-albedo_color = Color(0.0933018, 0.39047, 0.159068, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6bv0"]
+albedo_texture = ExtResource("4_u81e1")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ix8"]
 albedo_color = Color(0.836381, 0.469011, 0.182865, 1)
@@ -77,11 +94,17 @@ _data = {
 [node name="Environmemt" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environmemt"]
-environment = SubResource("Environment_h2yge")
+environment = SubResource("Environment_vkq25")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environmemt"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.77384, -0.452533, 0.443153, 0, 0.699663, 0.714473, -0.633381, 0.552888, -0.541428, 0, 0, 0)
+light_color = Color(0.459468, 0.590774, 1, 1)
 shadow_enabled = true
+
+[node name="Moon" type="CSGSphere3D" parent="Environmemt"]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, 46.3887, 85.5493, -45.7799)
+cast_shadow = 0
+material = SubResource("StandardMaterial3D_7lrji")
 
 [node name="Chuck" parent="." instance=ExtResource("2_2vj2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23788, -4.01519)
@@ -98,17 +121,19 @@ navigation_mesh = SubResource("NavigationMesh_j4d2a")
 
 [node name="zombie_actions" parent="NavigationRegion3D" instance=ExtResource("3_y0acb")]
 transform = Transform3D(-0.970296, 0.241922, -1.05747e-08, 0, -4.37114e-08, -1, -0.241922, -0.970296, 4.2413e-08, 3.001, 1.125, 10.274)
+visible = false
 script = ExtResource("4_j4d2a")
 player_path = NodePath("../Player/player")
 
 [node name="floor" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925781, 0.109375, -0.110803)
-material_override = SubResource("StandardMaterial3D_ig7tw")
+material_override = SubResource("StandardMaterial3D_b6bv0")
 use_collision = true
-size = Vector3(50, 0.5, 50)
+size = Vector3(100, 0.5, 100)
 
 [node name="wall" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00723, 9.42041)
+visible = false
 material_override = SubResource("StandardMaterial3D_72ix8")
 use_collision = true
 size = Vector3(3, 2.41446, 2.75562)
@@ -137,3 +162,6 @@ libraries = {
 
 [node name="Camera3D" type="Camera3D" parent="NavigationRegion3D/Player/player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298473, -0.365302)
+
+[node name="crypt2" parent="NavigationRegion3D" instance=ExtResource("6_b6bv0")]
+transform = Transform3D(-0.9966, 0, 0.0823907, 0, 1, 0, -0.0823907, 0, -0.9966, -0.475525, 0.382934, 10.3285)
