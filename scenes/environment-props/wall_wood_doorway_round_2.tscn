@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciblbnelrpd5q"]
+
+[ext_resource type="PackedScene" uid="uid://cv62w5jhged7u" path="res://models-fantasy/wallWoodDoorwayRound.glb" id="1_osqw3"]
+
+[node name="wallWoodDoorwayRound2" instance=ExtResource("1_osqw3")]

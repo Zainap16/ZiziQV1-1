@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr0pfyrpjl4fa"]
+
+[ext_resource type="PackedScene" uid="uid://ck7gv35i10b55" path="res://models-fantasy/wallWoodBroken.glb" id="1_u36lf"]
+
+[node name="wallWoodBroken2" instance=ExtResource("1_u36lf")]

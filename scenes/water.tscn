@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1ikg7deupjoh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_elfxw"]
+size = Vector2(5, 5)
+
+[node name="water" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_elfxw")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwvdisypbgwct"]
+
+[ext_resource type="PackedScene" uid="uid://kng8qjyvr5ue" path="res://models-fantasy/roofHighFlat.glb" id="1_m1lb3"]
+
+[node name="roofHighFlat2" instance=ExtResource("1_m1lb3")]

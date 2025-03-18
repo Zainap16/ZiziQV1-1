@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3m81w313ovm6"]
+
+[ext_resource type="PackedScene" uid="uid://b2qtnxh4oue78" path="res://models-fantasy/stallStool.glb" id="1_epc84"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_paffa"]
+points = PackedVector3Array(-0.13, 0.175483, -0.13, -0.110022, 0, -0.110022, -0.13, 0.175483, 0.13, -0.13, 0.225501, -0.13, 0.13, 0.175483, -0.13, -0.110022, 0, 0.109996, 0.109996, 0, -0.110022, -0.13, 0.225501, 0.13, 0.13, 0.175483, 0.13, 0.13, 0.225501, -0.13, 0.109996, 0, 0.109996, 0.13, 0.225501, 0.13)
+
+[node name="stallStool" instance=ExtResource("1_epc84")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_paffa")
