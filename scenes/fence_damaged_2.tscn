@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2b4xqmj633tr"]
-
-[ext_resource type="PackedScene" uid="uid://66jhbdgaxgob" path="res://models/Crpyt/fence-damaged.glb" id="1_1iuru"]
-
-[node name="fence-damaged2" instance=ExtResource("1_1iuru")]

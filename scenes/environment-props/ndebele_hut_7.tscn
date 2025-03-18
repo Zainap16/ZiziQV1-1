@@ -9,7 +9,6 @@ albedo_color = Color(0.449264, 0.427513, 0.44883, 1)
 albedo_color = Color(0.25643, 0.590685, 0.257396, 1)
 
 [node name="Ndebele_Hut7[1]" instance=ExtResource("1_aals5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Cylinder_001" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_5u3e8")

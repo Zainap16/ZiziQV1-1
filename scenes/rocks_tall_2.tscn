@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://k0wm3f78tcx0"]
-
-[ext_resource type="PackedScene" uid="uid://bs3dyklv2jwv3" path="res://models/Crpyt/rocks-tall.glb" id="1_o0br3"]
-
-[node name="rocks-tall2" instance=ExtResource("1_o0br3")]

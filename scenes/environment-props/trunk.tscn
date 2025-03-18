@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddq2c7p32lxxy"]
+
+[ext_resource type="PackedScene" uid="uid://cfs0v6xt72en0" path="res://models/Crpyt/trunk.glb" id="1_lw073"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f8pob"]
+points = PackedVector3Array(0.242304, 0, 0.1377, 0.169916, 0.364467, 0.0959155, 0.00379488, 0, 0.2754, 0.242304, 0, -0.1377, -0.12804, 0.3726, 0.0760747, -0.162375, 0.3726, 0.0959155, 0.00379488, 0.307789, 0.191831, 0.169916, 0.364467, -0.0959695, -0.0930286, 0.191698, 0.204825, -0.0930286, 0.15322, 0.210755, -0.130889, 0.15322, 0.18892, -0.234714, 0, 0.1377, 0.00379488, 0, -0.2754, -0.12804, 0.3726, -0.0761286, -0.12577, 0.191698, 0.185954, -0.162375, 0.3726, -0.0959695, -0.245242, 0.197497, 0.0211349, 0.00379488, 0.323983, -0.191885, -0.251037, 0.153876, 0.0245315, -0.234714, 0, -0.1377, -0.245242, 0.197497, -0.0211888, -0.251037, 0.153876, -0.0245855)
+
+[node name="trunk" instance=ExtResource("1_lw073")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_f8pob")

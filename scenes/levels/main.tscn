@@ -1,12 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwhwahxmjgpy3"]
+[gd_scene load_steps=26 format=3 uid="uid://dwhwahxmjgpy3"]
 
 [ext_resource type="Script" uid="uid://cts20ae4cihh1" path="res://scenes/scripts/player.gd" id="1_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://cd7q211fc3otd" path="res://NPCs/npc_1.tscn" id="2_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://cc6ilxfgv12cr" path="res://NPCs/zombie_actions.tscn" id="3_y0acb"]
 [ext_resource type="Script" uid="uid://cefet3wmmqlyf" path="res://scenes/scripts/zombie_actions.gd" id="4_j4d2a"]
 [ext_resource type="Texture2D" uid="uid://ca3vntmsp1pc3" path="res://earth-texture.jpg" id="4_u81e1"]
-[ext_resource type="PackedScene" uid="uid://bsyj1v64ggimj" path="res://scenes/crypt_2.tscn" id="6_b6bv0"]
-[ext_resource type="PackedScene" uid="uid://eyq25glkr5t6" path="res://scenes/ndebele_hut_7.tscn" id="7_ubwgw"]
+[ext_resource type="PackedScene" uid="uid://bsyj1v64ggimj" path="res://scenes/environment-props/crypt_2.tscn" id="6_b6bv0"]
+[ext_resource type="PackedScene" uid="uid://eyq25glkr5t6" path="res://scenes/environment-props/ndebele_hut_7.tscn" id="7_ubwgw"]
+[ext_resource type="PackedScene" uid="uid://ghv685cm16fr" path="res://scenes/environment-props/pine.tscn" id="8_rssyh"]
+[ext_resource type="PackedScene" uid="uid://d0yd4tx8flliv" path="res://scenes/environment-props/brick_wall_2.tscn" id="8_vkq25"]
+[ext_resource type="PackedScene" uid="uid://cge1uwnoploo5" path="res://scenes/environment-props/trunk_long.tscn" id="9_hwp66"]
+[ext_resource type="PackedScene" uid="uid://ybahv5tk5uqv" path="res://scenes/environment-props/fence_2.tscn" id="11_hwp66"]
+[ext_resource type="PackedScene" uid="uid://2b4xqmj633tr" path="res://scenes/environment-props/fence_damaged_2.tscn" id="12_2xkjh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6bv0"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -22,7 +27,6 @@ tonemap_mode = 2
 glow_bloom = 0.06
 fog_light_color = Color(0.517109, 0.227709, 0.198188, 1)
 fog_light_energy = 2.5
-volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.657582, 0.318996, 0.296177, 1)
 volumetric_fog_emission = Color(0.56744, 0.413317, 0.360829, 1)
 volumetric_fog_length = 100.0
@@ -128,6 +132,7 @@ player_path = NodePath("../Player/player")
 
 [node name="floor" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925781, 0.109375, -0.110803)
+visible = false
 material_override = SubResource("StandardMaterial3D_b6bv0")
 use_collision = true
 size = Vector3(100, 0.5, 100)
@@ -164,8 +169,1555 @@ libraries = {
 [node name="Camera3D" type="Camera3D" parent="NavigationRegion3D/Player/player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298473, -0.365302)
 
-[node name="crypt2" parent="NavigationRegion3D" instance=ExtResource("6_b6bv0")]
-transform = Transform3D(-0.9966, 0, 0.0823907, 0, 1, 0, -0.0823907, 0, -0.9966, -0.475525, 0.382934, 10.3285)
+[node name="walls-props" type="Node3D" parent="NavigationRegion3D"]
 
-[node name="Ndebele_Hut7[1]" parent="." instance=ExtResource("7_ubwgw")]
-transform = Transform3D(0.414157, 0, 0.280132, 0, 0.5, 0, -0.280132, 0, 0.414157, 9.22864, -0.195065, 12.0015)
+[node name="brick-wall2" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 39.6126)
+
+[node name="brick-wall3" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 35.1708)
+
+[node name="brick-wall4" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 30.698)
+
+[node name="brick-wall5" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 26.2563)
+
+[node name="brick-wall6" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 21.7395)
+
+[node name="brick-wall7" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 17.2978)
+
+[node name="brick-wall8" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 12.8249)
+
+[node name="brick-wall9" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 8.38317)
+
+[node name="brick-wall10" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, 3.88851)
+
+[node name="brick-wall11" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -0.553222)
+
+[node name="brick-wall12" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -5.02607)
+
+[node name="brick-wall13" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -9.4678)
+
+[node name="brick-wall14" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -13.9846)
+
+[node name="brick-wall44" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 38.3086)
+
+[node name="brick-wall45" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 33.8669)
+
+[node name="brick-wall46" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 29.394)
+
+[node name="brick-wall47" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 24.9523)
+
+[node name="brick-wall48" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 20.4355)
+
+[node name="brick-wall49" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 15.9938)
+
+[node name="brick-wall50" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 11.5209)
+
+[node name="brick-wall51" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 7.07921)
+
+[node name="brick-wall52" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, 2.58456)
+
+[node name="brick-wall53" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, -1.85718)
+
+[node name="brick-wall54" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, -6.33003)
+
+[node name="brick-wall55" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, 42.3472, 0.472335, -10.7718)
+
+[node name="brick-wall15" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -18.4263)
+
+[node name="brick-wall16" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -22.8992)
+
+[node name="brick-wall17" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -27.3409)
+
+[node name="brick-wall18" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -31.4063)
+
+[node name="brick-wall19" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -36.9525, 0.472335, -35.8481)
+
+[node name="brick-wall20" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -36.9019, 0.472335, -36.6629)
+
+[node name="brick-wall21" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -32.4605, 0.472335, -36.7188)
+
+[node name="brick-wall22" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -27.9441, 0.472335, -36.7755)
+
+[node name="brick-wall23" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -23.5027, 0.472335, -36.8313)
+
+[node name="brick-wall24" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -19.0302, 0.472335, -36.8875)
+
+[node name="brick-wall25" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -14.5888, 0.472335, -36.9434)
+
+[node name="brick-wall26" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -10.0945, 0.472335, -36.9998)
+
+[node name="brick-wall27" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -5.65312, 0.472335, -37.0556)
+
+[node name="brick-wall28" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -1.18062, 0.472335, -37.1119)
+
+[node name="brick-wall29" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 3.26075, 0.472335, -37.1677)
+
+[node name="brick-wall30" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 7.77717, 0.472335, -37.2244)
+
+[node name="brick-wall31" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 12.2186, 0.472335, -37.2802)
+
+[node name="brick-wall32" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 16.6911, 0.472335, -37.3364)
+
+[node name="brick-wall33" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 21.1324, 0.472335, -37.3923)
+
+[node name="brick-wall34" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 25.7116, 0.472335, -37.4385)
+
+[node name="brick-wall35" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 30.153, 0.472335, -37.4943)
+
+[node name="brick-wall36" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 34.6694, 0.472335, -37.5511)
+
+[node name="brick-wall43" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 39.3204, 0.472335, -37.5511)
+
+[node name="brick-wall56" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -36.9019, 0.472335, 42.8492)
+
+[node name="brick-wall57" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -32.4605, 0.472335, 42.7934)
+
+[node name="brick-wall58" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -27.9441, 0.472335, 42.7366)
+
+[node name="brick-wall59" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -23.5027, 0.472335, 42.6808)
+
+[node name="brick-wall60" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -19.0302, 0.472335, 42.6246)
+
+[node name="brick-wall61" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -14.5888, 0.472335, 42.5688)
+
+[node name="brick-wall62" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -10.0945, 0.472335, 42.5123)
+
+[node name="brick-wall63" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -5.65312, 0.472335, 42.4565)
+
+[node name="brick-wall64" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, -1.18062, 0.472335, 42.4003)
+
+[node name="brick-wall65" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 3.26075, 0.472335, 42.3444)
+
+[node name="brick-wall66" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 7.77717, 0.472335, 42.2877)
+
+[node name="brick-wall67" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 12.2186, 0.472335, 42.2319)
+
+[node name="brick-wall68" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 16.6911, 0.472335, 42.1757)
+
+[node name="brick-wall69" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 21.1324, 0.472335, 42.1199)
+
+[node name="brick-wall70" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 25.7116, 0.472335, 42.0736)
+
+[node name="brick-wall71" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 30.153, 0.472335, 42.0178)
+
+[node name="brick-wall72" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 34.6694, 0.472335, 41.961)
+
+[node name="brick-wall73" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(4.49964, 0, 0.0565476, 0, 4.5, 0, -0.0565476, 0, 4.49964, 39.3204, 0.472335, 41.961)
+
+[node name="brick-wall37" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-0.0204197, 0, -4.49995, 0, 4.5, 0, 4.49995, 0, -0.0204197, 38.7212, 0.472335, -36.9663)
+
+[node name="brick-wall38" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-0.0204197, 0, -4.49995, 0, 4.5, 0, 4.49995, 0, -0.0204197, 38.7009, 0.472335, -32.4935)
+
+[node name="brick-wall39" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-0.0204197, 0, -4.49995, 0, 4.5, 0, 4.49995, 0, -0.0204197, 38.6808, 0.472335, -28.0518)
+
+[node name="brick-wall40" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-0.0204197, 0, -4.49995, 0, 4.5, 0, 4.49995, 0, -0.0204197, 38.7163, 0.472335, -23.6713)
+
+[node name="brick-wall41" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-0.0204197, 0, -4.49995, 0, 4.5, 0, 4.49995, 0, -0.0204197, 38.696, 0.472335, -19.1984)
+
+[node name="brick-wall42" parent="NavigationRegion3D/walls-props" instance=ExtResource("8_vkq25")]
+transform = Transform3D(-0.0204197, 0, -4.49995, 0, 4.5, 0, 4.49995, 0, -0.0204197, 38.6759, 0.472335, -14.7568)
+
+[node name="trees-props" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="pine" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, 2.46452, 1.30647, 43.9875)
+
+[node name="trunk-long" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.49482, 0.359375, 44.0133)
+
+[node name="pine2" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, 7.2581, 1.30647, 43.9875)
+
+[node name="trunk-long2" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.2884, 0.359375, 44.0133)
+
+[node name="pine3" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(2, 0, 0, 0, 1.9916, -0.183108, 0, 0.183108, 1.9916, 10.9111, 1.30647, 43.9875)
+
+[node name="trunk-long3" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.9414, 0.359375, 44.0133)
+
+[node name="pine4" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, 1.433, 1.30647, 46.7799)
+
+[node name="trunk-long4" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.4633, 0.359375, 46.8058)
+
+[node name="pine5" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, 6.22658, 1.30647, 46.7799)
+
+[node name="trunk-long5" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.25688, 0.359375, 46.8058)
+
+[node name="pine6" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.86982, 0.706776, -0.0649809, -0.709757, 1.86197, -0.171189, 0, 0.183108, 1.9916, 9.87957, 1.30647, 46.7799)
+
+[node name="trunk-long6" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.90987, 0.359375, 46.8058)
+
+[node name="pine7" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91313, -0.130928, 0.568131, 0.136553, 1.99533, 0, -0.566805, 0.03879, 1.91761, 8.53755, 1.30647, 48.0385)
+
+[node name="trunk-long7" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, 8.57395, 0.359375, 48.0547)
+
+[node name="pine8" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.90933, 0.177997, 0.568131, -0.185645, 1.99137, 0, -0.565678, -0.0527353, 1.91761, 13.1337, 1.30647, 46.6768)
+
+[node name="trunk-long8" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, 13.1701, 0.359375, 46.693)
+
+[node name="pine9" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91761, 0.0520145, 0.565745, 0, 1.9916, -0.183108, -0.568131, 0.175564, 1.90956, 16.6362, 1.30647, 45.6391)
+
+[node name="trunk-long9" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, 16.6726, 0.359375, 45.6553)
+
+[node name="pine10" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99121, -0.136271, 0.128438, 0.136553, 1.99533, 4.23291e-09, -0.128138, 0.00876927, 1.99587, 12.7617, 1.30647, 43.915)
+
+[node name="trunk-long10" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, 12.7936, 0.359375, 43.9389)
+
+[node name="pine11" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.98725, 0.185262, 0.128438, -0.185645, 1.99137, -3.57183e-09, -0.127883, -0.0119219, 1.99587, 17.5454, 1.30647, 43.6072)
+
+[node name="trunk-long11" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, 17.5773, 0.359375, 43.6311)
+
+[node name="pine12" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.95113, -0.40785, 0.163586, 0.420245, 1.94943, -0.152073, -0.128438, 0.18273, 1.98749, 21.1908, 1.30647, 43.3726)
+
+[node name="trunk-long12" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, 21.2227, 0.359375, 43.3965)
+
+[node name="pine13" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, 22.8865, 1.30647, 43.9875)
+
+[node name="trunk-long13" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 22.9168, 0.359375, 44.0133)
+
+[node name="pine14" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, 27.6801, 1.30647, 43.9875)
+
+[node name="trunk-long14" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 27.7104, 0.359375, 44.0133)
+
+[node name="pine15" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(2, 0, 0, 0, 1.9916, -0.183108, 0, 0.183108, 1.9916, 31.3331, 1.30647, 43.9875)
+
+[node name="trunk-long15" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 31.3634, 0.359375, 44.0133)
+
+[node name="pine16" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, 21.855, 1.30647, 46.7799)
+
+[node name="trunk-long16" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 21.8853, 0.359375, 46.8058)
+
+[node name="pine17" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, 26.6486, 1.30647, 46.7799)
+
+[node name="trunk-long17" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 26.6789, 0.359375, 46.8058)
+
+[node name="pine18" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.86982, 0.706776, -0.0649809, -0.709757, 1.86197, -0.171189, 0, 0.183108, 1.9916, 30.3016, 1.30647, 46.7799)
+
+[node name="trunk-long18" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.3319, 0.359375, 46.8058)
+
+[node name="pine19" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91313, -0.130928, 0.568131, 0.136553, 1.99533, 0, -0.566805, 0.03879, 1.91761, 28.9595, 1.30647, 48.0385)
+
+[node name="trunk-long19" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, 28.996, 0.359375, 48.0547)
+
+[node name="pine20" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.90933, 0.177997, 0.568131, -0.185645, 1.99137, 0, -0.565678, -0.0527353, 1.91761, 33.5557, 1.30647, 46.6768)
+
+[node name="trunk-long20" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, 33.5921, 0.359375, 46.693)
+
+[node name="pine21" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91761, 0.0520145, 0.565745, 0, 1.9916, -0.183108, -0.568131, 0.175564, 1.90956, 37.0582, 1.30647, 45.6391)
+
+[node name="trunk-long21" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, 37.0946, 0.359375, 45.6553)
+
+[node name="pine22" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99121, -0.136271, 0.128438, 0.136553, 1.99533, 4.23291e-09, -0.128138, 0.00876927, 1.99587, 33.1837, 1.30647, 43.915)
+
+[node name="trunk-long22" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, 33.2156, 0.359375, 43.9389)
+
+[node name="pine23" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.98725, 0.185262, 0.128438, -0.185645, 1.99137, -3.57183e-09, -0.127883, -0.0119219, 1.99587, 37.9674, 1.30647, 43.6072)
+
+[node name="trunk-long23" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, 37.9993, 0.359375, 43.6311)
+
+[node name="pine24" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.95113, -0.40785, 0.163586, 0.420245, 1.94943, -0.152073, -0.128438, 0.18273, 1.98749, 41.6128, 1.30647, 43.3726)
+
+[node name="trunk-long24" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, 41.6447, 0.359375, 43.3965)
+
+[node name="pine25" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, -20.3127, 1.30647, 43.9875)
+
+[node name="trunk-long25" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.2824, 0.359375, 44.0133)
+
+[node name="pine26" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, -15.5192, 1.30647, 43.9875)
+
+[node name="trunk-long26" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.4889, 0.359375, 44.0133)
+
+[node name="pine27" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(2, 0, 0, 0, 1.9916, -0.183108, 0, 0.183108, 1.9916, -11.8662, 1.30647, 43.9875)
+
+[node name="trunk-long27" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.8359, 0.359375, 44.0133)
+
+[node name="pine28" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, -21.3443, 1.30647, 46.7799)
+
+[node name="trunk-long28" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.314, 0.359375, 46.8058)
+
+[node name="pine29" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, -16.5507, 1.30647, 46.7799)
+
+[node name="trunk-long29" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5204, 0.359375, 46.8058)
+
+[node name="pine30" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.86982, 0.706776, -0.0649809, -0.709757, 1.86197, -0.171189, 0, 0.183108, 1.9916, -12.8977, 1.30647, 46.7799)
+
+[node name="trunk-long30" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.8674, 0.359375, 46.8058)
+
+[node name="pine31" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91313, -0.130928, 0.568131, 0.136553, 1.99533, 0, -0.566805, 0.03879, 1.91761, -14.2397, 1.30647, 48.0385)
+
+[node name="trunk-long31" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, -14.2033, 0.359375, 48.0547)
+
+[node name="pine32" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.90933, 0.177997, 0.568131, -0.185645, 1.99137, 0, -0.565678, -0.0527353, 1.91761, -9.64361, 1.30647, 46.6768)
+
+[node name="trunk-long32" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, -9.60721, 0.359375, 46.693)
+
+[node name="pine33" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91761, 0.0520145, 0.565745, 0, 1.9916, -0.183108, -0.568131, 0.175564, 1.90956, -6.14111, 1.30647, 45.6391)
+
+[node name="trunk-long33" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, -6.10471, 0.359375, 45.6553)
+
+[node name="pine34" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99121, -0.136271, 0.128438, 0.136553, 1.99533, 4.23291e-09, -0.128138, 0.00876927, 1.99587, -10.0155, 1.30647, 43.915)
+
+[node name="trunk-long34" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, -9.98365, 0.359375, 43.9389)
+
+[node name="pine35" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.98725, 0.185262, 0.128438, -0.185645, 1.99137, -3.57183e-09, -0.127883, -0.0119219, 1.99587, -5.23186, 1.30647, 43.6072)
+
+[node name="trunk-long35" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, -5.19997, 0.359375, 43.6311)
+
+[node name="pine36" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.95113, -0.40785, 0.163586, 0.420245, 1.94943, -0.152073, -0.128438, 0.18273, 1.98749, -1.58642, 1.30647, 43.3726)
+
+[node name="trunk-long36" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, -1.55452, 0.359375, 43.3965)
+
+[node name="pine37" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, -44.4157, 1.30647, 43.9875)
+
+[node name="trunk-long37" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -44.3854, 0.359375, 44.0133)
+
+[node name="pine38" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, -39.6221, 1.30647, 43.9875)
+
+[node name="trunk-long38" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -39.5918, 0.359375, 44.0133)
+
+[node name="pine39" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(2, 0, 0, 0, 1.9916, -0.183108, 0, 0.183108, 1.9916, -35.9691, 1.30647, 43.9875)
+
+[node name="trunk-long39" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -35.9389, 0.359375, 44.0133)
+
+[node name="pine40" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99533, -0.136553, 0, 0.136553, 1.99533, 0, 0, 0, 2, -45.4472, 1.30647, 46.7799)
+
+[node name="trunk-long40" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -45.4169, 0.359375, 46.8058)
+
+[node name="pine41" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99137, 0.185645, 0, -0.185645, 1.99137, 0, 0, 0, 2, -40.6537, 1.30647, 46.7799)
+
+[node name="trunk-long41" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -40.6234, 0.359375, 46.8058)
+
+[node name="pine42" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.86982, 0.706776, -0.0649809, -0.709757, 1.86197, -0.171189, 0, 0.183108, 1.9916, -37.0007, 1.30647, 46.7799)
+
+[node name="trunk-long42" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -36.9704, 0.359375, 46.8058)
+
+[node name="pine43" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91313, -0.130928, 0.568131, 0.136553, 1.99533, 0, -0.566805, 0.03879, 1.91761, -38.3427, 1.30647, 48.0385)
+
+[node name="trunk-long43" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, -38.3063, 0.359375, 48.0547)
+
+[node name="pine44" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.90933, 0.177997, 0.568131, -0.185645, 1.99137, 0, -0.565678, -0.0527353, 1.91761, -33.7466, 1.30647, 46.6768)
+
+[node name="trunk-long44" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, -33.7102, 0.359375, 46.693)
+
+[node name="pine45" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.91761, 0.0520145, 0.565745, 0, 1.9916, -0.183108, -0.568131, 0.175564, 1.90956, -30.2441, 1.30647, 45.6391)
+
+[node name="trunk-long45" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.91761, 0, 0.568131, 0, 2, 0, -0.568131, 0, 1.91761, -30.2077, 0.359375, 45.6553)
+
+[node name="pine46" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.99121, -0.136271, 0.128438, 0.136553, 1.99533, 4.23291e-09, -0.128138, 0.00876927, 1.99587, -34.1185, 1.30647, 43.915)
+
+[node name="trunk-long46" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, -34.0866, 0.359375, 43.9389)
+
+[node name="pine47" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.98725, 0.185262, 0.128438, -0.185645, 1.99137, -3.57183e-09, -0.127883, -0.0119219, 1.99587, -29.3348, 1.30647, 43.6072)
+
+[node name="trunk-long47" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, -29.3029, 0.359375, 43.6311)
+
+[node name="pine48" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(1.95113, -0.40785, 0.163586, 0.420245, 1.94943, -0.152073, -0.128438, 0.18273, 1.98749, -25.6894, 1.30647, 43.3726)
+
+[node name="trunk-long48" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(1.99587, 0, 0.128438, 0, 2, 0, -0.128438, 0, 1.99587, -25.6575, 0.359375, 43.3965)
+
+[node name="pine49" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -43.4779, 1.30647, 22.8505)
+
+[node name="trunk-long49" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.5027, 0.359375, 22.8817)
+
+[node name="pine50" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -43.3086, 1.30647, 27.6411)
+
+[node name="trunk-long50" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.3334, 0.359375, 27.6723)
+
+[node name="pine51" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0706363, -0.182993, -1.99036, 0, 1.9916, -0.183108, 1.99875, 0.00646702, 0.0703396, -43.1796, 1.30647, 31.2918)
+
+[node name="trunk-long51" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.2044, 0.359375, 31.323)
+
+[node name="pine52" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -46.3051, 1.30647, 21.9183)
+
+[node name="trunk-long52" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.3299, 0.359375, 21.9495)
+
+[node name="pine53" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -46.1358, 1.30647, 26.7089)
+
+[node name="trunk-long53" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.1606, 0.359375, 26.7401)
+
+[node name="pine54" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0660387, -0.158031, -1.99265, -0.709757, 1.86197, -0.171189, 1.86866, 0.712802, 0.00539923, -46.0068, 1.30647, 30.3596)
+
+[node name="trunk-long54" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.0316, 0.359375, 30.3908)
+
+[node name="pine55" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.63402, -0.0433899, -1.89635, 0.136553, 1.99533, 4.23291e-09, 1.89192, -0.129476, 0.635503, -47.3119, 1.30647, 29.0628)
+
+[node name="trunk-long55" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -47.3268, 0.359375, 29.0998)
+
+[node name="pine56" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.632759, 0.0589889, -1.89635, -0.185645, 1.99137, -3.57183e-09, 1.88816, 0.176024, 0.635503, -45.7887, 1.30647, 33.608)
+
+[node name="trunk-long56" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -45.8037, 0.359375, 33.6449)
+
+[node name="pine57" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.635503, -0.173618, -1.88838, 0, 1.9916, -0.183108, 1.89635, 0.0581827, 0.632834, -44.628, 1.30647, 37.0716)
+
+[node name="trunk-long57" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -44.6429, 0.359375, 37.1086)
+
+[node name="pine58" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.198384, -0.0135766, -1.99009, 0.136553, 1.99533, 4.77575e-09, 1.98545, -0.135876, 0.198848, -43.0419, 1.30647, 33.1387)
+
+[node name="trunk-long58" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -43.0646, 0.359375, 33.1715)
+
+[node name="pine59" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197989, 0.0184575, -1.99009, -0.185645, 1.99137, -3.45359e-09, 1.9815, 0.184725, 0.198848, -42.5653, 1.30647, 37.9086)
+
+[node name="trunk-long59" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.588, 0.359375, 37.9413)
+
+[node name="pine60" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197268, -0.19702, -1.98047, 0.420245, 1.94943, -0.152073, 1.94537, -0.401142, 0.233678, -42.2021, 1.30647, 41.5434)
+
+[node name="trunk-long60" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.2248, 0.359375, 41.5762)
+
+[node name="pine61" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -43.4779, 1.30647, 5.20773)
+
+[node name="trunk-long61" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.5027, 0.359375, 5.23893)
+
+[node name="pine62" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -43.3086, 1.30647, 9.99833)
+
+[node name="trunk-long62" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.3334, 0.359375, 10.0295)
+
+[node name="pine63" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0706363, -0.182993, -1.99036, 0, 1.9916, -0.183108, 1.99875, 0.00646702, 0.0703396, -43.1796, 1.30647, 13.649)
+
+[node name="trunk-long63" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.2044, 0.359375, 13.6802)
+
+[node name="pine64" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -46.3051, 1.30647, 4.27548)
+
+[node name="trunk-long64" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.3299, 0.359375, 4.30668)
+
+[node name="pine65" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -46.1358, 1.30647, 9.06607)
+
+[node name="trunk-long65" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.1606, 0.359375, 9.09727)
+
+[node name="pine66" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0660387, -0.158031, -1.99265, -0.709757, 1.86197, -0.171189, 1.86866, 0.712802, 0.00539923, -46.0068, 1.30647, 12.7168)
+
+[node name="trunk-long66" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.0316, 0.359375, 12.748)
+
+[node name="pine67" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.63402, -0.0433899, -1.89635, 0.136553, 1.99533, 4.23291e-09, 1.89192, -0.129476, 0.635503, -47.3119, 1.30647, 11.42)
+
+[node name="trunk-long67" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -47.3268, 0.359375, 11.457)
+
+[node name="pine68" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.632759, 0.0589889, -1.89635, -0.185645, 1.99137, -3.57183e-09, 1.88816, 0.176024, 0.635503, -45.7887, 1.30647, 15.9652)
+
+[node name="trunk-long68" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -45.8037, 0.359375, 16.0021)
+
+[node name="pine69" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.635503, -0.173618, -1.88838, 0, 1.9916, -0.183108, 1.89635, 0.0581827, 0.632834, -44.628, 1.30647, 19.4289)
+
+[node name="trunk-long69" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -44.6429, 0.359375, 19.4658)
+
+[node name="pine70" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.198384, -0.0135766, -1.99009, 0.136553, 1.99533, 4.77575e-09, 1.98545, -0.135876, 0.198848, -43.0419, 1.30647, 15.496)
+
+[node name="trunk-long70" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -43.0646, 0.359375, 15.5287)
+
+[node name="pine71" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197989, 0.0184575, -1.99009, -0.185645, 1.99137, -3.45359e-09, 1.9815, 0.184725, 0.198848, -42.5653, 1.30647, 20.2658)
+
+[node name="trunk-long71" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.588, 0.359375, 20.2985)
+
+[node name="pine72" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197268, -0.19702, -1.98047, 0.420245, 1.94943, -0.152073, 1.94537, -0.401142, 0.233678, -42.2021, 1.30647, 23.9007)
+
+[node name="trunk-long72" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.2248, 0.359375, 23.9334)
+
+[node name="pine73" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -43.4779, 1.30647, -16.7237)
+
+[node name="trunk-long73" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.5027, 0.359375, -16.6925)
+
+[node name="pine74" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -43.3086, 1.30647, -11.9331)
+
+[node name="trunk-long74" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.3334, 0.359375, -11.9019)
+
+[node name="pine75" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0706363, -0.182993, -1.99036, 0, 1.9916, -0.183108, 1.99875, 0.00646702, 0.0703396, -43.1796, 1.30647, -8.28237)
+
+[node name="trunk-long75" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.2044, 0.359375, -8.25118)
+
+[node name="pine76" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -46.3051, 1.30647, -17.6559)
+
+[node name="trunk-long76" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.3299, 0.359375, -17.6247)
+
+[node name="pine77" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -46.1358, 1.30647, -12.8653)
+
+[node name="trunk-long77" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.1606, 0.359375, -12.8341)
+
+[node name="pine78" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0660387, -0.158031, -1.99265, -0.709757, 1.86197, -0.171189, 1.86866, 0.712802, 0.00539923, -46.0068, 1.30647, -9.21462)
+
+[node name="trunk-long78" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.0316, 0.359375, -9.18343)
+
+[node name="pine79" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.63402, -0.0433899, -1.89635, 0.136553, 1.99533, 4.23291e-09, 1.89192, -0.129476, 0.635503, -47.3119, 1.30647, -10.5114)
+
+[node name="trunk-long79" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -47.3268, 0.359375, -10.4744)
+
+[node name="pine80" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.632759, 0.0589889, -1.89635, -0.185645, 1.99137, -3.57183e-09, 1.88816, 0.176024, 0.635503, -45.7887, 1.30647, -5.96621)
+
+[node name="trunk-long80" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -45.8037, 0.359375, -5.92925)
+
+[node name="pine81" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.635503, -0.173618, -1.88838, 0, 1.9916, -0.183108, 1.89635, 0.0581827, 0.632834, -44.628, 1.30647, -2.50255)
+
+[node name="trunk-long81" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -44.6429, 0.359375, -2.46559)
+
+[node name="pine82" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.198384, -0.0135766, -1.99009, 0.136553, 1.99533, 4.77575e-09, 1.98545, -0.135876, 0.198848, -43.0419, 1.30647, -6.43545)
+
+[node name="trunk-long82" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -43.0646, 0.359375, -6.40273)
+
+[node name="pine83" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197989, 0.0184575, -1.99009, -0.185645, 1.99137, -3.45359e-09, 1.9815, 0.184725, 0.198848, -42.5653, 1.30647, -1.66563)
+
+[node name="trunk-long83" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.588, 0.359375, -1.63291)
+
+[node name="pine84" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197268, -0.19702, -1.98047, 0.420245, 1.94943, -0.152073, 1.94537, -0.401142, 0.233678, -42.2021, 1.30647, 1.96926)
+
+[node name="trunk-long84" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.2248, 0.359375, 2.00198)
+
+[node name="pine85" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -43.4779, 1.30647, -33.4586)
+
+[node name="trunk-long85" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.5027, 0.359375, -33.4274)
+
+[node name="pine86" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -43.3086, 1.30647, -28.668)
+
+[node name="trunk-long86" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.3334, 0.359375, -28.6368)
+
+[node name="pine87" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0706363, -0.182993, -1.99036, 0, 1.9916, -0.183108, 1.99875, 0.00646702, 0.0703396, -43.1796, 1.30647, -25.0173)
+
+[node name="trunk-long87" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.2044, 0.359375, -24.9861)
+
+[node name="pine88" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -46.3051, 1.30647, -34.3909)
+
+[node name="trunk-long88" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.3299, 0.359375, -34.3597)
+
+[node name="pine89" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -46.1358, 1.30647, -29.6003)
+
+[node name="trunk-long89" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.1606, 0.359375, -29.5691)
+
+[node name="pine90" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0660387, -0.158031, -1.99265, -0.709757, 1.86197, -0.171189, 1.86866, 0.712802, 0.00539923, -46.0068, 1.30647, -25.9496)
+
+[node name="trunk-long90" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.0316, 0.359375, -25.9184)
+
+[node name="pine91" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.63402, -0.0433899, -1.89635, 0.136553, 1.99533, 4.23291e-09, 1.89192, -0.129476, 0.635503, -47.3119, 1.30647, -27.2463)
+
+[node name="trunk-long91" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -47.3268, 0.359375, -27.2093)
+
+[node name="pine92" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.632759, 0.0589889, -1.89635, -0.185645, 1.99137, -3.57183e-09, 1.88816, 0.176024, 0.635503, -45.7887, 1.30647, -22.7011)
+
+[node name="trunk-long92" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -45.8037, 0.359375, -22.6642)
+
+[node name="pine93" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.635503, -0.173618, -1.88838, 0, 1.9916, -0.183108, 1.89635, 0.0581827, 0.632834, -44.628, 1.30647, -19.2375)
+
+[node name="trunk-long93" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -44.6429, 0.359375, -19.2005)
+
+[node name="pine94" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.198384, -0.0135766, -1.99009, 0.136553, 1.99533, 4.77575e-09, 1.98545, -0.135876, 0.198848, -43.0419, 1.30647, -23.1704)
+
+[node name="trunk-long94" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -43.0646, 0.359375, -23.1377)
+
+[node name="pine95" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197989, 0.0184575, -1.99009, -0.185645, 1.99137, -3.45359e-09, 1.9815, 0.184725, 0.198848, -42.5653, 1.30647, -18.4006)
+
+[node name="trunk-long95" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.588, 0.359375, -18.3678)
+
+[node name="pine96" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197268, -0.19702, -1.98047, 0.420245, 1.94943, -0.152073, 1.94537, -0.401142, 0.233678, -42.2021, 1.30647, -14.7657)
+
+[node name="trunk-long96" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.2248, 0.359375, -14.733)
+
+[node name="pine97" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -43.4779, 1.30647, -47.3544)
+
+[node name="trunk-long97" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.5027, 0.359375, -47.3232)
+
+[node name="pine98" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -43.3086, 1.30647, -42.5638)
+
+[node name="trunk-long98" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.3334, 0.359375, -42.5326)
+
+[node name="pine99" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0706363, -0.182993, -1.99036, 0, 1.9916, -0.183108, 1.99875, 0.00646702, 0.0703396, -43.1796, 1.30647, -38.9131)
+
+[node name="trunk-long99" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -43.2044, 0.359375, -38.8819)
+
+[node name="pine100" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0704714, -0.0048228, -1.99875, 0.136553, 1.99533, 0, 1.99409, -0.136468, 0.0706363, -46.3051, 1.30647, -48.2867)
+
+[node name="trunk-long100" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.3299, 0.359375, -48.2555)
+
+[node name="pine101" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0703313, 0.00655663, -1.99875, -0.185645, 1.99137, 0, 1.99012, 0.185529, 0.0706363, -46.1358, 1.30647, -43.4961)
+
+[node name="trunk-long101" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.1606, 0.359375, -43.4649)
+
+[node name="pine102" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.0660387, -0.158031, -1.99265, -0.709757, 1.86197, -0.171189, 1.86866, 0.712802, 0.00539923, -46.0068, 1.30647, -39.8454)
+
+[node name="trunk-long102" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.0706363, 0, -1.99875, 0, 2, 0, 1.99875, 0, 0.0706363, -46.0316, 0.359375, -39.8142)
+
+[node name="pine103" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.63402, -0.0433899, -1.89635, 0.136553, 1.99533, 4.23291e-09, 1.89192, -0.129476, 0.635503, -47.3119, 1.30647, -41.1421)
+
+[node name="trunk-long103" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -47.3268, 0.359375, -41.1051)
+
+[node name="pine104" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.632759, 0.0589889, -1.89635, -0.185645, 1.99137, -3.57183e-09, 1.88816, 0.176024, 0.635503, -45.7887, 1.30647, -36.5969)
+
+[node name="trunk-long104" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -45.8037, 0.359375, -36.56)
+
+[node name="pine105" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.635503, -0.173618, -1.88838, 0, 1.9916, -0.183108, 1.89635, 0.0581827, 0.632834, -44.628, 1.30647, -33.1333)
+
+[node name="trunk-long105" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.635503, 0, -1.89635, 0, 2, 0, 1.89635, 0, 0.635503, -44.6429, 0.359375, -33.0963)
+
+[node name="pine106" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.198384, -0.0135766, -1.99009, 0.136553, 1.99533, 4.77575e-09, 1.98545, -0.135876, 0.198848, -43.0419, 1.30647, -37.0662)
+
+[node name="trunk-long106" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -43.0646, 0.359375, -37.0335)
+
+[node name="pine107" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197989, 0.0184575, -1.99009, -0.185645, 1.99137, -3.45359e-09, 1.9815, 0.184725, 0.198848, -42.5653, 1.30647, -32.2964)
+
+[node name="trunk-long107" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.588, 0.359375, -32.2636)
+
+[node name="pine108" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.197268, -0.19702, -1.98047, 0.420245, 1.94943, -0.152073, 1.94537, -0.401142, 0.233678, -42.2021, 1.30647, -28.6615)
+
+[node name="trunk-long108" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.198848, 0, -1.99009, 0, 2, 0, 1.99009, 0, 0.198848, -42.2248, 0.359375, -28.6288)
+
+[node name="pine109" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, -18.9562, 1.30647, -43.6247)
+
+[node name="trunk-long109" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -18.9871, 0.359375, -43.6499)
+
+[node name="pine110" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, -23.7487, 1.30647, -43.52)
+
+[node name="trunk-long110" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -23.7795, 0.359375, -43.5453)
+
+[node name="pine111" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99952, -0.00399769, -0.0434812, -9.91652e-10, 1.9916, -0.183107, 0.0436646, -0.183064, -1.99113, -27.4008, 1.30647, -43.4403)
+
+[node name="trunk-long111" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -27.4316, 0.359375, -43.4655)
+
+[node name="pine112" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, -17.9859, 1.30647, -46.439)
+
+[node name="trunk-long112" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -18.0168, 0.359375, -46.4643)
+
+[node name="pine113" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, -22.7784, 1.30647, -46.3344)
+
+[node name="trunk-long113" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -22.8092, 0.359375, -46.3596)
+
+[node name="pine114" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.86938, -0.710605, 0.0214842, -0.709757, 1.86197, -0.171189, 0.0408226, -0.167633, -1.99254, -26.4305, 1.30647, -46.2546)
+
+[node name="trunk-long114" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -26.4613, 0.359375, -46.2798)
+
+[node name="pine115" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.9003, 0.13005, -0.609862, 0.136553, 1.99533, 3.73095e-09, 0.608438, -0.0416392, -1.90475, -25.1163, 1.30647, -47.5422)
+
+[node name="trunk-long115" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, -25.153, 0.359375, -47.5576)
+
+[node name="pine116" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.89653, -0.176803, -0.609862, -0.185645, 1.99137, -3.61143e-09, 0.607229, 0.0566088, -1.90475, -29.6815, 1.30647, -46.0804)
+
+[node name="trunk-long116" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, -29.7183, 0.359375, -46.0959)
+
+[node name="pine117" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.90475, -0.0558351, -0.6073, 0, 1.9916, -0.183108, 0.609861, -0.174387, -1.89675, -33.1606, 1.30647, -44.9665)
+
+[node name="trunk-long117" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, -33.1973, 0.359375, -44.982)
+
+[node name="pine118" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98794, 0.136047, -0.171982, 0.136553, 1.99533, 4.91795e-09, 0.17158, -0.0117423, -1.99259, -29.2494, 1.30647, -43.3275)
+
+[node name="trunk-long118" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, -29.2818, 0.359375, -43.3507)
+
+[node name="pine119" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98399, -0.184957, -0.171981, -0.185645, 1.99137, -3.57222e-09, 0.171239, 0.0159637, -1.99259, -34.0252, 1.30647, -42.9153)
+
+[node name="trunk-long119" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, -34.0576, 0.359375, -42.9385)
+
+[node name="pine120" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.94786, 0.403764, -0.206938, 0.420245, 1.94943, -0.152073, 0.171005, -0.19159, -1.98344, -37.6647, 1.30647, -42.6012)
+
+[node name="trunk-long120" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, -37.6971, 0.359375, -42.6244)
+
+[node name="pine121" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, -0.095171, 1.30647, -43.6247)
+
+[node name="trunk-long121" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -0.126032, 0.359375, -43.6499)
+
+[node name="pine122" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, -4.88761, 1.30647, -43.52)
+
+[node name="trunk-long122" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -4.91847, 0.359375, -43.5453)
+
+[node name="pine123" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99952, -0.00399769, -0.0434812, -9.91652e-10, 1.9916, -0.183107, 0.0436646, -0.183064, -1.99113, -8.53973, 1.30647, -43.4403)
+
+[node name="trunk-long123" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -8.57058, 0.359375, -43.4655)
+
+[node name="pine124" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, 0.875135, 1.30647, -46.439)
+
+[node name="trunk-long124" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 0.844278, 0.359375, -46.4643)
+
+[node name="pine125" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, -3.9173, 1.30647, -46.3344)
+
+[node name="trunk-long125" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -3.94816, 0.359375, -46.3596)
+
+[node name="pine126" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.86938, -0.710605, 0.0214842, -0.709757, 1.86197, -0.171189, 0.0408226, -0.167633, -1.99254, -7.56942, 1.30647, -46.2546)
+
+[node name="trunk-long126" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, -7.60028, 0.359375, -46.2798)
+
+[node name="pine127" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.9003, 0.13005, -0.609862, 0.136553, 1.99533, 3.73095e-09, 0.608438, -0.0416392, -1.90475, -6.2552, 1.30647, -47.5422)
+
+[node name="trunk-long127" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, -6.29195, 0.359375, -47.5576)
+
+[node name="pine128" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.89653, -0.176803, -0.609862, -0.185645, 1.99137, -3.61143e-09, 0.607229, 0.0566088, -1.90475, -10.8205, 1.30647, -46.0804)
+
+[node name="trunk-long128" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, -10.8572, 0.359375, -46.0959)
+
+[node name="pine129" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.90475, -0.0558351, -0.6073, 0, 1.9916, -0.183108, 0.609861, -0.174387, -1.89675, -14.2995, 1.30647, -44.9665)
+
+[node name="trunk-long129" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, -14.3362, 0.359375, -44.982)
+
+[node name="pine130" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98794, 0.136047, -0.171982, 0.136553, 1.99533, 4.91795e-09, 0.17158, -0.0117423, -1.99259, -10.3883, 1.30647, -43.3275)
+
+[node name="trunk-long130" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, -10.4207, 0.359375, -43.3507)
+
+[node name="pine131" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98399, -0.184957, -0.171981, -0.185645, 1.99137, -3.57222e-09, 0.171239, 0.0159637, -1.99259, -15.1642, 1.30647, -42.9153)
+
+[node name="trunk-long131" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, -15.1966, 0.359375, -42.9385)
+
+[node name="pine132" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.94786, 0.403764, -0.206938, 0.420245, 1.94943, -0.152073, 0.171005, -0.19159, -1.98344, -18.8036, 1.30647, -42.6012)
+
+[node name="trunk-long132" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, -18.836, 0.359375, -42.6244)
+
+[node name="pine133" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, 19.1453, 1.30647, -43.6247)
+
+[node name="trunk-long133" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 19.1144, 0.359375, -43.6499)
+
+[node name="pine134" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, 14.3528, 1.30647, -43.52)
+
+[node name="trunk-long134" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 14.322, 0.359375, -43.5453)
+
+[node name="pine135" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99952, -0.00399769, -0.0434812, -9.91652e-10, 1.9916, -0.183107, 0.0436646, -0.183064, -1.99113, 10.7007, 1.30647, -43.4403)
+
+[node name="trunk-long135" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 10.6698, 0.359375, -43.4655)
+
+[node name="pine136" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, 20.1156, 1.30647, -46.439)
+
+[node name="trunk-long136" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 20.0847, 0.359375, -46.4643)
+
+[node name="pine137" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, 15.3231, 1.30647, -46.3344)
+
+[node name="trunk-long137" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 15.2923, 0.359375, -46.3596)
+
+[node name="pine138" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.86938, -0.710605, 0.0214842, -0.709757, 1.86197, -0.171189, 0.0408226, -0.167633, -1.99254, 11.671, 1.30647, -46.2546)
+
+[node name="trunk-long138" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 11.6402, 0.359375, -46.2798)
+
+[node name="pine139" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.9003, 0.13005, -0.609862, 0.136553, 1.99533, 3.73095e-09, 0.608438, -0.0416392, -1.90475, 12.9852, 1.30647, -47.5422)
+
+[node name="trunk-long139" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, 12.9485, 0.359375, -47.5576)
+
+[node name="pine140" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.89653, -0.176803, -0.609862, -0.185645, 1.99137, -3.61143e-09, 0.607229, 0.0566088, -1.90475, 8.41996, 1.30647, -46.0804)
+
+[node name="trunk-long140" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, 8.38321, 0.359375, -46.0959)
+
+[node name="pine141" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.90475, -0.0558351, -0.6073, 0, 1.9916, -0.183108, 0.609861, -0.174387, -1.89675, 4.94094, 1.30647, -44.9665)
+
+[node name="trunk-long141" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, 4.90419, 0.359375, -44.982)
+
+[node name="pine142" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98794, 0.136047, -0.171982, 0.136553, 1.99533, 4.91795e-09, 0.17158, -0.0117423, -1.99259, 8.85209, 1.30647, -43.3275)
+
+[node name="trunk-long142" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, 8.81968, 0.359375, -43.3507)
+
+[node name="pine143" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98399, -0.184957, -0.171981, -0.185645, 1.99137, -3.57222e-09, 0.171239, 0.0159637, -1.99259, 4.07628, 1.30647, -42.9153)
+
+[node name="trunk-long143" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, 4.04386, 0.359375, -42.9385)
+
+[node name="pine144" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.94786, 0.403764, -0.206938, 0.420245, 1.94943, -0.152073, 0.171005, -0.19159, -1.98344, 0.436815, 1.30647, -42.6012)
+
+[node name="trunk-long144" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, 0.404406, 0.359375, -42.6244)
+
+[node name="pine145" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, 38.661, 1.30647, -43.6247)
+
+[node name="trunk-long145" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 38.6301, 0.359375, -43.6499)
+
+[node name="pine146" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, 33.8685, 1.30647, -43.52)
+
+[node name="trunk-long146" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 33.8377, 0.359375, -43.5453)
+
+[node name="pine147" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99952, -0.00399769, -0.0434812, -9.91652e-10, 1.9916, -0.183107, 0.0436646, -0.183064, -1.99113, 30.2164, 1.30647, -43.4403)
+
+[node name="trunk-long147" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 30.1856, 0.359375, -43.4655)
+
+[node name="pine148" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99486, 0.13652, -0.0436646, 0.136553, 1.99533, -5.26281e-10, 0.0435627, -0.0029813, -1.99952, 39.6313, 1.30647, -46.439)
+
+[node name="trunk-long148" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 39.6004, 0.359375, -46.4643)
+
+[node name="pine149" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.99089, -0.185601, -0.0436646, -0.185645, 1.99137, -9.91651e-10, 0.0434761, 0.00405306, -1.99952, 34.8388, 1.30647, -46.3344)
+
+[node name="trunk-long149" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 34.808, 0.359375, -46.3596)
+
+[node name="pine150" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.86938, -0.710605, 0.0214842, -0.709757, 1.86197, -0.171189, 0.0408226, -0.167633, -1.99254, 31.1867, 1.30647, -46.2546)
+
+[node name="trunk-long150" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99952, 0, -0.0436646, 0, 2, 0, 0.0436646, 0, -1.99952, 31.1559, 0.359375, -46.2798)
+
+[node name="pine151" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.9003, 0.13005, -0.609862, 0.136553, 1.99533, 3.73095e-09, 0.608438, -0.0416392, -1.90475, 32.5009, 1.30647, -47.5422)
+
+[node name="trunk-long151" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, 32.4642, 0.359375, -47.5576)
+
+[node name="pine152" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.89653, -0.176803, -0.609862, -0.185645, 1.99137, -3.61143e-09, 0.607229, 0.0566088, -1.90475, 27.9357, 1.30647, -46.0804)
+
+[node name="trunk-long152" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, 27.8989, 0.359375, -46.0959)
+
+[node name="pine153" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.90475, -0.0558351, -0.6073, 0, 1.9916, -0.183108, 0.609861, -0.174387, -1.89675, 24.4567, 1.30647, -44.9665)
+
+[node name="trunk-long153" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.90475, 0, -0.609862, 0, 2, 0, 0.609862, 0, -1.90475, 24.4199, 0.359375, -44.982)
+
+[node name="pine154" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98794, 0.136047, -0.171982, 0.136553, 1.99533, 4.91795e-09, 0.17158, -0.0117423, -1.99259, 28.3678, 1.30647, -43.3275)
+
+[node name="trunk-long154" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, 28.3354, 0.359375, -43.3507)
+
+[node name="pine155" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.98399, -0.184957, -0.171981, -0.185645, 1.99137, -3.57222e-09, 0.171239, 0.0159637, -1.99259, 23.592, 1.30647, -42.9153)
+
+[node name="trunk-long155" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, 23.5596, 0.359375, -42.9385)
+
+[node name="pine156" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-1.94786, 0.403764, -0.206938, 0.420245, 1.94943, -0.152073, 0.171005, -0.19159, -1.98344, 19.9525, 1.30647, -42.6012)
+
+[node name="trunk-long156" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-1.99259, 0, -0.171982, 0, 2, 0, 0.171982, 0, -1.99259, 19.9201, 0.359375, -42.6244)
+
+[node name="pine157" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 45.0743, 1.30647, -20.6124)
+
+[node name="trunk-long157" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.102, 0.359375, -20.641)
+
+[node name="pine158" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 45.3794, 1.30647, -25.3962)
+
+[node name="trunk-long158" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.4071, 0.359375, -25.4248)
+
+[node name="pine159" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.127288, 0.182736, 1.98756, 2.5483e-09, 1.9916, -0.183108, -1.99595, 0.0116536, 0.126753, 45.6118, 1.30647, -29.0418)
+
+[node name="trunk-long159" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.6396, 0.359375, -29.0704)
+
+[node name="pine160" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 47.7954, 1.30647, -19.4052)
+
+[node name="trunk-long160" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 47.8232, 0.359375, -19.4338)
+
+[node name="pine161" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 48.1005, 1.30647, -24.1891)
+
+[node name="trunk-long161" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.1283, 0.359375, -24.2177)
+
+[node name="pine162" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.119003, 0.227718, 1.98343, -0.709757, 1.86197, -0.17119, -1.86603, -0.69369, 0.191602, 48.333, 1.30647, -27.8347)
+
+[node name="trunk-long162" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.3608, 0.359375, -27.8633)
+
+[node name="pine163" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443897, 0.0303786, 1.94988, 0.136553, 1.99533, -4.16751e-11, -1.94533, 0.133131, -0.444935, 49.5036, 1.30647, -26.4153)
+
+[node name="trunk-long163" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 49.5221, 0.359375, -26.4506)
+
+[node name="pine164" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443014, -0.0413, 1.94988, -0.185645, 1.99137, 9.50806e-10, -1.94146, -0.180993, -0.444935, 48.4372, 1.30647, -31.0887)
+
+[node name="trunk-long164" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 48.4557, 0.359375, -31.124)
+
+[node name="pine165" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.444935, 0.178519, 1.94169, -3.92884e-09, 1.9916, -0.183107, -1.94988, -0.0407355, -0.443066, 47.6245, 1.30647, -34.6502)
+
+[node name="trunk-long165" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 47.643, 0.359375, -34.6855)
+
+[node name="pine166" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114918, 7.86111e-05, 2, 0.136553, 1.99533, 5.48797e-09, -1.99533, 0.136553, -0.00115192, 45.6573, 1.30647, -30.8933)
+
+[node name="trunk-long166" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6832, 0.359375, -30.9236)
+
+[node name="pine167" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114679, -0.000106879, 2, -0.185645, 1.99137, -1.16485e-08, -1.99136, -0.185645, -0.00115192, 45.6546, 1.30647, -35.6869)
+
+[node name="trunk-long167" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6805, 0.359375, -35.7172)
+
+[node name="pine168" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00399965, 0.156402, 1.99387, 0.420245, 1.94943, -0.152073, -1.95535, 0.418653, -0.0367622, 45.6525, 1.30647, -39.3399)
+
+[node name="trunk-long168" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6784, 0.359375, -39.3702)
+
+[node name="pine169" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 45.0743, 1.30647, 0.900881)
+
+[node name="trunk-long169" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.102, 0.359375, 0.872286)
+
+[node name="pine170" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 45.3794, 1.30647, -3.88299)
+
+[node name="trunk-long170" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.4071, 0.359375, -3.91158)
+
+[node name="pine171" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.127288, 0.182736, 1.98756, 2.5483e-09, 1.9916, -0.183108, -1.99595, 0.0116536, 0.126753, 45.6118, 1.30647, -7.52857)
+
+[node name="trunk-long171" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.6396, 0.359375, -7.55715)
+
+[node name="pine172" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 47.7954, 1.30647, 2.10803)
+
+[node name="trunk-long172" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 47.8232, 0.359375, 2.07944)
+
+[node name="pine173" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 48.1005, 1.30647, -2.67583)
+
+[node name="trunk-long173" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.1283, 0.359375, -2.70443)
+
+[node name="pine174" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.119003, 0.227718, 1.98343, -0.709757, 1.86197, -0.17119, -1.86603, -0.69369, 0.191602, 48.333, 1.30647, -6.32141)
+
+[node name="trunk-long174" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.3608, 0.359375, -6.35001)
+
+[node name="pine175" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443897, 0.0303786, 1.94988, 0.136553, 1.99533, -4.16751e-11, -1.94533, 0.133131, -0.444935, 49.5036, 1.30647, -4.90202)
+
+[node name="trunk-long175" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 49.5221, 0.359375, -4.93732)
+
+[node name="pine176" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443014, -0.0413, 1.94988, -0.185645, 1.99137, 9.50806e-10, -1.94146, -0.180993, -0.444935, 48.4372, 1.30647, -9.57546)
+
+[node name="trunk-long176" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 48.4557, 0.359375, -9.61077)
+
+[node name="pine177" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.444935, 0.178519, 1.94169, -3.92884e-09, 1.9916, -0.183107, -1.94988, -0.0407355, -0.443066, 47.6245, 1.30647, -13.1369)
+
+[node name="trunk-long177" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 47.643, 0.359375, -13.1722)
+
+[node name="pine178" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114918, 7.86111e-05, 2, 0.136553, 1.99533, 5.48797e-09, -1.99533, 0.136553, -0.00115192, 45.6573, 1.30647, -9.38006)
+
+[node name="trunk-long178" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6832, 0.359375, -9.41037)
+
+[node name="pine179" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114679, -0.000106879, 2, -0.185645, 1.99137, -1.16485e-08, -1.99136, -0.185645, -0.00115192, 45.6546, 1.30647, -14.1736)
+
+[node name="trunk-long179" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6805, 0.359375, -14.2039)
+
+[node name="pine180" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00399965, 0.156402, 1.99387, 0.420245, 1.94943, -0.152073, -1.95535, 0.418653, -0.0367622, 45.6525, 1.30647, -17.8266)
+
+[node name="trunk-long180" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6784, 0.359375, -17.8569)
+
+[node name="pine181" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 45.0743, 1.30647, 23.8356)
+
+[node name="trunk-long181" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.102, 0.359375, 23.807)
+
+[node name="pine182" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 45.3794, 1.30647, 19.0517)
+
+[node name="trunk-long182" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.4071, 0.359375, 19.0231)
+
+[node name="pine183" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.127288, 0.182736, 1.98756, 2.5483e-09, 1.9916, -0.183108, -1.99595, 0.0116536, 0.126753, 45.6118, 1.30647, 15.4062)
+
+[node name="trunk-long183" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.6396, 0.359375, 15.3776)
+
+[node name="pine184" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 47.7954, 1.30647, 25.0428)
+
+[node name="trunk-long184" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 47.8232, 0.359375, 25.0142)
+
+[node name="pine185" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 48.1005, 1.30647, 20.2589)
+
+[node name="trunk-long185" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.1283, 0.359375, 20.2303)
+
+[node name="pine186" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.119003, 0.227718, 1.98343, -0.709757, 1.86197, -0.17119, -1.86603, -0.69369, 0.191602, 48.333, 1.30647, 16.6133)
+
+[node name="trunk-long186" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.3608, 0.359375, 16.5847)
+
+[node name="pine187" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443897, 0.0303786, 1.94988, 0.136553, 1.99533, -4.16751e-11, -1.94533, 0.133131, -0.444935, 49.5036, 1.30647, 18.0327)
+
+[node name="trunk-long187" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 49.5221, 0.359375, 17.9974)
+
+[node name="pine188" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443014, -0.0413, 1.94988, -0.185645, 1.99137, 9.50806e-10, -1.94146, -0.180993, -0.444935, 48.4372, 1.30647, 13.3593)
+
+[node name="trunk-long188" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 48.4557, 0.359375, 13.324)
+
+[node name="pine189" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.444935, 0.178519, 1.94169, -3.92884e-09, 1.9916, -0.183107, -1.94988, -0.0407355, -0.443066, 47.6245, 1.30647, 9.79781)
+
+[node name="trunk-long189" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 47.643, 0.359375, 9.76251)
+
+[node name="pine190" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114918, 7.86111e-05, 2, 0.136553, 1.99533, 5.48797e-09, -1.99533, 0.136553, -0.00115192, 45.6573, 1.30647, 13.5547)
+
+[node name="trunk-long190" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6832, 0.359375, 13.5244)
+
+[node name="pine191" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114679, -0.000106879, 2, -0.185645, 1.99137, -1.16485e-08, -1.99136, -0.185645, -0.00115192, 45.6546, 1.30647, 8.7611)
+
+[node name="trunk-long191" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6805, 0.359375, 8.73078)
+
+[node name="pine192" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00399965, 0.156402, 1.99387, 0.420245, 1.94943, -0.152073, -1.95535, 0.418653, -0.0367622, 45.6525, 1.30647, 5.10811)
+
+[node name="trunk-long192" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6784, 0.359375, 5.07779)
+
+[node name="pine193" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 45.0743, 1.30647, 40.979)
+
+[node name="trunk-long193" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.102, 0.359375, 40.9504)
+
+[node name="pine194" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 45.3794, 1.30647, 36.1951)
+
+[node name="trunk-long194" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.4071, 0.359375, 36.1665)
+
+[node name="pine195" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.127288, 0.182736, 1.98756, 2.5483e-09, 1.9916, -0.183108, -1.99595, 0.0116536, 0.126753, 45.6118, 1.30647, 32.5496)
+
+[node name="trunk-long195" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 45.6396, 0.359375, 32.521)
+
+[node name="pine196" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126991, -0.00869076, 1.99595, 0.136553, 1.99533, 5.83346e-09, -1.99129, 0.136276, 0.127288, 47.7954, 1.30647, 42.1862)
+
+[node name="trunk-long196" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 47.8232, 0.359375, 42.1576)
+
+[node name="pine197" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.126738, 0.0118152, 1.99595, -0.185645, 1.99137, 1.0311e-09, -1.98733, -0.185268, 0.127288, 48.1005, 1.30647, 37.4023)
+
+[node name="trunk-long197" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.1283, 0.359375, 37.3737)
+
+[node name="pine198" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(0.119003, 0.227718, 1.98343, -0.709757, 1.86197, -0.17119, -1.86603, -0.69369, 0.191602, 48.333, 1.30647, 33.7567)
+
+[node name="trunk-long198" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(0.127288, 0, 1.99595, 0, 2, 0, -1.99595, 0, 0.127288, 48.3608, 0.359375, 33.7281)
+
+[node name="pine199" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443897, 0.0303786, 1.94988, 0.136553, 1.99533, -4.16751e-11, -1.94533, 0.133131, -0.444935, 49.5036, 1.30647, 35.1761)
+
+[node name="trunk-long199" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 49.5221, 0.359375, 35.1408)
+
+[node name="pine200" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.443014, -0.0413, 1.94988, -0.185645, 1.99137, 9.50806e-10, -1.94146, -0.180993, -0.444935, 48.4372, 1.30647, 30.5027)
+
+[node name="trunk-long200" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 48.4557, 0.359375, 30.4674)
+
+[node name="pine201" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.444935, 0.178519, 1.94169, -3.92884e-09, 1.9916, -0.183107, -1.94988, -0.0407355, -0.443066, 47.6245, 1.30647, 26.9412)
+
+[node name="trunk-long201" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.444935, 0, 1.94988, 0, 2, 0, -1.94988, 0, -0.444935, 47.643, 0.359375, 26.9059)
+
+[node name="pine202" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00114918, 7.86111e-05, 2, 0.136553, 1.99533, 5.48797e-09, -1.99533, 0.136553, -0.00115192, 45.6573, 1.30647, 30.6981)
+
+[node name="trunk-long202" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00115192, 0, 2, 0, 2, 0, -2, 0, -0.00115192, 45.6832, 0.359375, 30.6678)
+
+[node name="pine203" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00143335, -0.000133585, 2.5, -0.232056, 2.48921, -3.87039e-08, -2.48921, -0.232056, -0.00143956, 45.6546, 1.30647, 25.9045)
+
+[node name="trunk-long203" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6805, 0.359375, 25.8742)
+
+[node name="pine204" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00499946, 0.195502, 2.49234, 0.525306, 2.43678, -0.190091, -2.44418, 0.523316, -0.0459525, 45.6525, 1.30647, 22.2515)
+
+[node name="trunk-long204" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6784, 0.359375, 22.2212)
+
+[node name="pine205" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00143335, -0.000133585, 2.5, -0.232056, 2.48921, -3.87039e-08, -2.48921, -0.232056, -0.00143956, 45.6546, 1.30647, 4.35254)
+
+[node name="trunk-long205" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6805, 0.359375, 4.32223)
+
+[node name="pine206" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00499946, 0.195502, 2.49234, 0.525306, 2.43678, -0.190091, -2.44418, 0.523316, -0.0459525, 45.6525, 1.30647, 0.699553)
+
+[node name="trunk-long206" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6784, 0.359375, 0.669233)
+
+[node name="pine207" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00143335, -0.000133585, 2.5, -0.232056, 2.48921, -3.87039e-08, -2.48921, -0.232056, -0.00143956, 45.6546, 1.30647, -38.1015)
+
+[node name="trunk-long207" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6805, 0.359375, -38.1319)
+
+[node name="pine208" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00499946, 0.195502, 2.49234, 0.525306, 2.43678, -0.190091, -2.44418, 0.523316, -0.0459525, 45.6525, 1.30647, -41.7545)
+
+[node name="trunk-long208" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6784, 0.359375, -41.7849)
+
+[node name="pine209" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00143335, -0.000133585, 2.5, -0.232056, 2.48921, -3.87039e-08, -2.48921, -0.232056, -0.00143956, 45.6546, 1.30647, 42.7161)
+
+[node name="trunk-long209" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6805, 0.359375, 42.6858)
+
+[node name="pine210" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00499946, 0.195502, 2.49234, 0.525306, 2.43678, -0.190091, -2.44418, 0.523316, -0.0459525, 45.6525, 1.30647, 39.0631)
+
+[node name="trunk-long210" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, 45.6784, 0.359375, 39.0328)
+
+[node name="pine211" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00143335, -0.000133585, 2.5, -0.232056, 2.48921, -3.87039e-08, -2.48921, -0.232056, -0.00143956, -43.0252, 1.30647, 42.7161)
+
+[node name="trunk-long211" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, -42.9993, 0.359375, 42.6858)
+
+[node name="pine212" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00499946, 0.195502, 2.49234, 0.525306, 2.43678, -0.190091, -2.44418, 0.523316, -0.0459525, -43.0273, 1.30647, 39.0631)
+
+[node name="trunk-long212" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, -43.0014, 0.359375, 39.0328)
+
+[node name="pine213" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00143335, -0.000133585, 2.5, -0.232056, 2.48921, -3.87039e-08, -2.48921, -0.232056, -0.00143956, -20.317, 1.30647, 48.0003)
+
+[node name="trunk-long213" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, -20.2911, 0.359375, 47.9699)
+
+[node name="pine214" parent="NavigationRegion3D/trees-props" instance=ExtResource("8_rssyh")]
+transform = Transform3D(-0.00499946, 0.195502, 2.49234, 0.525306, 2.43678, -0.190091, -2.44418, 0.523316, -0.0459525, -20.3191, 1.30647, 44.3473)
+
+[node name="trunk-long214" parent="NavigationRegion3D/trees-props" instance=ExtResource("9_hwp66")]
+transform = Transform3D(-0.00143986, 0, 2.5, 0, 2.5, 0, -2.5, 0, -0.00143986, -20.2932, 0.359375, 44.3169)
+
+[node name="house-props" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Ndebele_Hut7[1]" parent="NavigationRegion3D/house-props" instance=ExtResource("7_ubwgw")]
+transform = Transform3D(0.414157, 0, 0.280132, 0, 0.5, 0, -0.280132, 0, 0.414157, 21.3413, -0.0198159, 22.7446)
+
+[node name="crypt2" parent="NavigationRegion3D/house-props" instance=ExtResource("6_b6bv0")]
+transform = Transform3D(-0.9966, 0, 0.0823907, 0, 1, 0, -0.0823907, 0, -0.9966, -10.209, 0.382934, 25.1696)
+
+[node name="fences-props" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="fence2" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 14.6135, 0.359375, -29.5916)
+
+[node name="fence3" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 16.3954, 0.359375, -29.5916)
+
+[node name="fence4" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 18.2288, 0.359375, -29.5916)
+
+[node name="fence5" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 20.0232, 0.359375, -29.5916)
+
+[node name="fence6" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 21.8051, 0.359375, -29.5916)
+
+[node name="fence7" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 23.6386, 0.359375, -29.5916)
+
+[node name="fence8" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 2.57195, 0.566458, -29.3258)
+
+[node name="fence9" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 4.35386, 0.566458, -29.3258)
+
+[node name="fence10" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 6.18729, 0.566458, -29.3258)
+
+[node name="fence11" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 7.98169, 0.566458, -29.3258)
+
+[node name="fence12" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 9.76359, 0.566458, -29.3258)
+
+[node name="fence13" parent="NavigationRegion3D/fences-props" instance=ExtResource("11_hwp66")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 11.597, 0.566458, -29.3258)
+
+[node name="fence-damaged2" parent="NavigationRegion3D/fences-props" instance=ExtResource("12_2xkjh")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 17.2253, 0.359375, -4.83056)

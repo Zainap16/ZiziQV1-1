@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/shovel-dirt.glb-49d72309aa4e340a06e9b4717fc6d
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

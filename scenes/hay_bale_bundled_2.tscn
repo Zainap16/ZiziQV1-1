@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpin4vne2k6ah"]
-
-[ext_resource type="PackedScene" uid="uid://d1534emw304si" path="res://models/Crpyt/hay-bale-bundled.glb" id="1_eepf5"]
-
-[node name="hay-bale-bundled2" instance=ExtResource("1_eepf5")]
