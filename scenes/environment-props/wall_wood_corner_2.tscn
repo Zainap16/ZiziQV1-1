@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://yuftirt3km76"]
 
-[ext_resource type="PackedScene" uid="uid://lxjooh3nmdvu" path="res://models-fantasy/wallWoodCorner.glb" id="1_5881y"]
+[ext_resource type="PackedScene" uid="uid://lxjooh3nmdvu" path="res://models/models-fantasy/wallWoodCorner.glb" id="1_5881y"]
 
 [node name="wallWoodCorner2" instance=ExtResource("1_5881y")]

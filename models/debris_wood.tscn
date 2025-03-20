@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://u2gciouvth3u"]
+
+[ext_resource type="PackedScene" uid="uid://b102q3tann7t4" path="res://models/Crpyt/debris-wood.glb" id="1_nwnl2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wsvkh"]
+points = PackedVector3Array(0.233453, 0.03936, -0.143486, 0.233453, 0, -0.143486, 0.161425, 0.03936, -0.268177, 0.190172, 0.07872, -0.150994, 0.227969, 0.03936, 0.268177, 0.161425, 0, -0.268177, 0.227969, 0, 0.268177, -0.233453, 0.03936, -0.040216, 0.0578149, 0.07872, -0.207695, 0.0105118, 0.07872, 0.268177, -0.233453, 0, -0.040216, -0.228015, 0, 0.268177, -0.228015, 0.03936, 0.268177, -0.121846, 0.07872, 0.211423)
+
+[node name="debris-wood" instance=ExtResource("1_nwnl2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_wsvkh")

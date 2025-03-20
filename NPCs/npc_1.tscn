@@ -1,6 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd7q211fc3otd"]
 
-[ext_resource type="Script" uid="uid://bn4q3st4p2j5r" path="res://NPCs/npc_1.gd" id="1_t44hj"]
+[sub_resource type="GDScript" id="GDScript_vusl6"]
+script/source = "extends CharacterBody3D
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t44hj"]
 albedo_color = Color(0.75895, 0.00367796, 0.605678, 1)
@@ -11,7 +13,7 @@ material = SubResource("StandardMaterial3D_t44hj")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t44hj"]
 
 [node name="Chuck" type="CharacterBody3D"]
-script = ExtResource("1_t44hj")
+script = SubResource("GDScript_vusl6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_vusl6")

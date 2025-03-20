@@ -30,15 +30,16 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVEITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(50))
 		
-
 func _physics_process(delta):
-	
+	if player_in_range:
+		if Input.is_action_just_pressed("dialogue"):
+			run_dialogue("npc-1")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -48,40 +49,36 @@ func _physics_process(delta):
 	if direction:	
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED	
-		headbob.play("headbob_walk")
+		#headbob.play("headbob_walk")
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
-		headbob.pause()
+		#headbob.pause()
+		
 	move_and_slide()
-	if player_in_range:
-		if Input.is_action_just_pressed("dialogue"):
-			run_dialogue("npc-1")
-
-func run_dialogue(dialogue_string):
-	Dialogic.start(dialogue_string)
 
 func _on_area_3d_body_entered(body):
 	print("body entered")
-	if body.has_method("player_f"):
+	if body.has_method("player1"):
 		player_in_range = true
-		print("eneter")
-
 
 func _on_area_3d_body_exited(body):
 	print("body exited")
-	if body.has_method("player_f"):
-		player_in_range = true
+	if body.has_method("player1"):
+		player_in_range = false
 		print("WIN")
 
-func DialogicSignal(body):
-	if body.name == "player":  # Change this to match your player node's name
+func run_dialogue(dialogue_string):
+	Dialogic.start(dialogue_string) #dialogue_string
+
+func DialogicSignal(node):
+	if node.name == "player":  # Change this to match your player node's name
 		print("SCORE")
 		stop_dialogue()
 
 func stop_dialogue():
 	if Dialogic:  
 		Dialogic.stop()  # ✅ Stops the dialogue safely
-		
-func player_f():
+
+func player1():
 	pass

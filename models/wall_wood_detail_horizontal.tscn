@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://htqsyhqj6sa0"]
+
+[ext_resource type="PackedScene" uid="uid://bikl8ooju5eo5" path="res://models/models-fantasy/wallWoodDetailHorizontal.glb" id="1_nswl2"]
+
+[node name="wallWoodDetailHorizontal" instance=ExtResource("1_nswl2")]

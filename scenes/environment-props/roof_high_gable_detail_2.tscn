@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://coef0nww2c5ty"]
 
-[ext_resource type="PackedScene" uid="uid://ijfqtymouv2y" path="res://models-fantasy/roofHighGableDetail.glb" id="1_13hkx"]
+[ext_resource type="PackedScene" uid="uid://ijfqtymouv2y" path="res://models/models-fantasy/roofHighGableDetail.glb" id="1_13hkx"]
 
 [node name="roofHighGableDetail2" instance=ExtResource("1_13hkx")]

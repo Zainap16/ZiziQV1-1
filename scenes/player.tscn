@@ -66,3 +66,6 @@ libraries = {
 
 [node name="Camera3D" type="Camera3D" parent="player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298473, -0.365302)
+
+[connection signal="child_entered_tree" from="player" to="player" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="player" to="player" method="_on_child_exiting_tree"]

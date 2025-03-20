@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://k4gc7cf0gijr"]
 
-[ext_resource type="PackedScene" uid="uid://b3e5ygyyd3kpc" path="res://models-fantasy/windmill.glb" id="1_gbp55"]
+[ext_resource type="PackedScene" uid="uid://b3e5ygyyd3kpc" path="res://models/models-fantasy/windmill.glb" id="1_gbp55"]
 
 [node name="windmill2" instance=ExtResource("1_gbp55")]

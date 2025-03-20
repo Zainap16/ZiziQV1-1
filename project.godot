@@ -23,7 +23,9 @@ SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://Timelines/characters/character.dch",
+"Ancestor": "res://Timelines/characters/Ancestor.dch",
+"Narrator": "res://Timelines/characters/Narrator.dch",
+"Zizi": "res://Timelines/characters/Zizi.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
@@ -124,6 +126,11 @@ dialogic_default_action={
 dialogue={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+jump={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 

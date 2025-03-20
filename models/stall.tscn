@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5l150x36xhcl"]
+
+[ext_resource type="PackedScene" uid="uid://bdn7aabxcup5b" path="res://models/models-fantasy/stall.glb" id="1_186ia"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y25p8"]
+points = PackedVector3Array(0.325, 0.365501, 0.5, -0.325, 0.365501, 0.5, 0.325, 0.315485, 0.5, 0.325, 0.365501, -0.5, -0.325, 0.315485, 0.5, -0.325, 0.365501, -0.5, 0.249985, 0, 0.44998, 0.325, 0.315485, -0.5, -0.250049, 0, 0.44998, -0.325, 0.315485, -0.5, 0.249985, 0, -0.450078, -0.250049, 0, -0.450078)
+
+[node name="stall" instance=ExtResource("1_186ia")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_y25p8")
