@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://v3ei2utpkdqc"]
+
+[ext_resource type="PackedScene" uid="uid://ck7gv35i10b55" path="res://models/models-fantasy/wallWoodBroken.glb" id="1_fg7i7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hx2g4"]
+points = PackedVector3Array(-0.425006, 0.0833007, 0.5, -0.475005, 0.0833007, 0.5, -0.425006, 0, 0.5, -0.396735, 0.28054, 0.12872, -0.410594, 0.44724, 0.228955, -0.425006, 0.249902, 0.424922, -0.475005, 0, 0.5, -0.475005, 0.249902, 0.424922, -0.503276, 0.28054, 0.333105, -0.400006, 0, -0.400059, -0.396735, 0.249902, 0.12872, -0.400006, 1, -0.5, -0.400006, 1, -0.400059, -0.425006, 0.666601, 0.124902, -0.500005, 0, -0.400059, -0.503276, 0.249902, 0.333105, -0.475005, 0.666601, 0.124902, -0.500005, 1, -0.400059, -0.509642, 0.44724, 0.0914252, -0.400006, 0, -0.5, -0.500005, 1, -0.5, -0.500005, 0, -0.5, -0.509642, 0.416601, 0.0914252)
+
+[node name="wallWoodBroken" instance=ExtResource("1_fg7i7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_hx2g4")

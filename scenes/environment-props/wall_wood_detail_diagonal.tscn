@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcm17ri7ufifr"]
+
+[ext_resource type="PackedScene" uid="uid://dfynfqui3n0ti" path="res://models/models-fantasy/wallWoodDetailDiagonal.glb" id="1_l66xm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xukxf"]
+points = PackedVector3Array(-0.40001, 1, 0.5, -0.40001, 1, -0.5, -0.5, 1, 0.5, -0.40001, 0, 0.5, -0.5, 1, -0.5, -0.40001, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5)
+
+[node name="wallWoodDetailDiagonal" instance=ExtResource("1_l66xm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_xukxf")
