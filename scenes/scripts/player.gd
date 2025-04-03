@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const SENSITIVEITY = 0.003
-const SPEED = 8
+const SENSITIVEITY = 0.001
+const SPEED = 6
 const JUMP_VELOCITY = 6
 
 #bob varibales

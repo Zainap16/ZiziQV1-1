@@ -4,9 +4,11 @@
 &"_translation_id": "",
 &"color": Color(1, 1, 1, 1),
 &"custom_info": {
+"prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": ""
+"style": "",
+"suffix": ""
 },
 &"default_portrait": "",
 &"description": "",
@@ -15,5 +17,5 @@
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {},
-&"scale": 1.0
+&"scale": 0.5
 }
